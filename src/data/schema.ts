@@ -1,0 +1,6 @@
+import { z } from 'zod'
+
+const Event = z.object({ time: z.string(), title: z.string(), kind: z.string(), duration: z.string(), distance: z.string(), notes: z.string() })
+const Day = z.object({ id: z.string(), date: z.string(), title: z.string(), distanceKm: z.number(), weather: z.string(), hotelId: z.string(), summary: z.string(), highlights: z.array(z.string()), events: z.array(Event) })
+export const TripSchema = z.object({ trip: z.object({ id: z.string(), title: z.string(), travellers: z.string(), startDate: z.string(), endDate: z.string(), currency: z.string(), vehicle: z.string(), hero: z.string() }), days: z.array(Day), hotels: z.array(z.object({ id: z.string(), name: z.string(), location: z.string(), address: z.string(), checkIn: z.string(), checkOut: z.string(), parking: z.string(), charging: z.string(), bookingReference: z.string(), phone: z.string(), lat: z.number(), lng: z.number() })), places: z.array(z.object({ id: z.string(), name: z.string(), type: z.string(), lat: z.number(), lng: z.number(), description: z.string(), hours: z.string(), power: z.string().optional() })), packing: z.array(z.object({ category: z.string(), items: z.array(z.string()) })), emergency: z.array(z.object({ label: z.string(), number: z.string() })) })
+export type TripData = z.infer<typeof TripSchema>
