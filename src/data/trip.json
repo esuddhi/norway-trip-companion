@@ -6,7 +6,7 @@
       "summary": "Cross into Norway and settle into the mountains at Geilo.",
       "highlights": ["Swedish–Norwegian border", "Hallingdal valley", "Sunset at Ustedalsfjorden"],
       "events": [
-        { "time": "08:00", "title": "Leave Gothenburg", "kind": "drive", "duration": "3h 30m", "distance": "290 km", "notes": "Head north on E6 then E134 toward Drammen.", "lat": 57.708, "lng": 11.974, "road": "E6 → E134" },
+        { "time": "06:30", "title": "Leave Gothenburg", "kind": "drive", "duration": "3h 30m", "distance": "290 km", "notes": "Head north on E6 then E134 toward Drammen.", "lat": 57.708, "lng": 11.974, "road": "E6 → E134" },
         { "time": "11:30", "title": "Charging stop — Drammen", "kind": "charge", "duration": "25 min", "distance": "", "notes": "IONITY Drammen, near Burger King for a snack.", "lat": 59.737, "lng": 10.205, "charger": "IONITY", "power": "350 kW", "connector": "CCS", "tip": "Burger King and toilets within 50m" },
         { "time": "12:30", "title": "Continue via Hallingdal", "kind": "drive", "duration": "2h 30m", "distance": "190 km", "notes": "Beautiful valley drive along Rv7 through Gol and Ål.", "road": "Rv7" },
         { "time": "15:00", "title": "Quick stop in Gol", "kind": "viewpoint", "duration": "20 min", "distance": "", "notes": "Stretch legs, playground for kids near the town centre.", "lat": 60.701, "lng": 8.946, "tip": "Good bakery at Gol Sentrum" },
