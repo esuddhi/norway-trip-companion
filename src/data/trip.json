@@ -1,13 +1,92 @@
 {
   "trip": { "id": "norway-2026", "title": "Norway, the scenic way", "travellers": "Megan & family", "startDate": "2026-07-26", "endDate": "2026-08-01", "currency": "NOK", "vehicle": "Tesla Model Y", "hero": "Norway road trip" },
   "days": [
-    { "id": "day-1", "date": "2026-07-26", "title": "Gothenburg → Geilo", "distanceKm": 480, "weather": "Partly cloudy · 17°", "hotelId": "havsdalsgrenda", "summary": "Cross into Norway and settle into the mountains at Geilo.", "highlights": ["Swedish–Norwegian border", "Hallingdal valley", "Sunset at Ustedalsfjorden"], "events": [{ "time": "08:00", "title": "Leave Gothenburg", "kind": "drive", "duration": "6h 30m", "distance": "480 km", "notes": "Leave with a full charge and allow for charging breaks." }, { "time": "12:00", "title": "Lunch & charging stop", "kind": "charge", "duration": "45 min", "distance": "", "notes": "Choose a high-power stop on the E16 route." }, { "time": "17:00", "title": "Check in at Havsdalsgrenda", "kind": "hotel", "duration": "", "distance": "", "notes": "Geilo apartment check-in." }] },
-    { "id": "day-2", "date": "2026-07-27", "title": "Geilo → Flåm → Voss", "distanceKm": 225, "weather": "Light rain · 14°", "hotelId": "flatlandsmo", "summary": "A mountain crossing, fjord views in Flåm, then on to Voss.", "highlights": ["Hardangervidda plateau", "Flåm harbour", "Voss evening"], "events": [{ "time": "09:00", "title": "Drive from Geilo to Flåm", "kind": "drive", "duration": "2h 30m", "distance": "145 km", "notes": "Pack waterproofs; weather changes quickly." }, { "time": "12:30", "title": "Explore Flåm", "kind": "viewpoint", "duration": "1h 30m", "distance": "", "notes": "Lunch and harbour walk." }, { "time": "15:30", "title": "Continue to Voss", "kind": "drive", "duration": "1h 30m", "distance": "80 km", "notes": "Check in for the first of two nights." }] },
-    { "id": "day-3", "date": "2026-07-28", "title": "Explore Voss", "distanceKm": 40, "weather": "Sunny spells · 18°", "hotelId": "flatlandsmo", "summary": "A flexible day for Voss and the surrounding attractions.", "highlights": ["Voss Gondol", "Lake Vangsvatnet", "Rain-day alternatives"], "events": [{ "time": "10:00", "title": "Explore Voss attractions", "kind": "viewpoint", "duration": "Flexible", "distance": "40 km", "notes": "Choose activities based on weather." }, { "time": "18:00", "title": "Return to Flatlandsmo Camping", "kind": "hotel", "duration": "", "distance": "", "notes": "Second night in Voss." }] },
-    { "id": "day-4", "date": "2026-07-29", "title": "Voss → Loen → Stryn / Hjelle", "distanceKm": 235, "weather": "Cloudy · 15°", "hotelId": "folven", "summary": "Follow the fjords north via Loen to the Stryn and Hjelle area.", "highlights": ["Loen Skylift", "Nordfjord", "Olden and Stryn"], "events": [{ "time": "09:00", "title": "Leave Voss", "kind": "drive", "duration": "4h", "distance": "235 km", "notes": "Allow time for photo stops." }, { "time": "13:30", "title": "Loen stop", "kind": "viewpoint", "duration": "1h 30m", "distance": "", "notes": "Skylift or fjord-side walk." }, { "time": "17:00", "title": "Check in near Stryn / Hjelle", "kind": "hotel", "duration": "", "distance": "", "notes": "Plan B accommodation: Folven Camping, Hjelle." }] },
-    { "id": "day-5", "date": "2026-07-30", "title": "Hellesylt → Geiranger → Stryn", "distanceKm": 190, "weather": "Light rain · 13°", "hotelId": "folven", "summary": "Take the booked Hellesylt–Geiranger ferry, then return to Stryn.", "highlights": ["11:30 ferry booking", "Geirangerfjord", "Eagle Road"], "events": [{ "time": "10:45", "title": "Arrive at Hellesylt ferry terminal", "kind": "ferry", "duration": "", "distance": "", "notes": "Booking: board for the 11:30 Hellesylt → Geiranger departure." }, { "time": "11:30", "title": "Hellesylt → Geiranger ferry", "kind": "ferry", "duration": "1h", "distance": "", "notes": "Keep booking confirmation ready." }, { "time": "14:00", "title": "Explore Geiranger", "kind": "viewpoint", "duration": "2h", "distance": "", "notes": "Adapt stops to weather and ferry timing." }, { "time": "18:00", "title": "Return to Stryn", "kind": "drive", "duration": "3h", "distance": "190 km", "notes": "Same accommodation as last night." }] },
-    { "id": "day-6", "date": "2026-07-31", "title": "Stryn → Lillehammer / Ringsaker", "distanceKm": 390, "weather": "Partly cloudy · 18°", "hotelId": "ringsaker-home", "summary": "A long scenic drive east to Ringsaker, near Lillehammer.", "highlights": ["Ottadalen", "Lillehammer region", "Mjøsa sunset"], "events": [{ "time": "08:30", "title": "Leave Stryn", "kind": "drive", "duration": "6h", "distance": "390 km", "notes": "Plan two charging and comfort breaks." }, { "time": "17:00", "title": "Arrive at Borkevegen 55", "kind": "hotel", "duration": "", "distance": "", "notes": "Overnight in Ringsaker." }] },
-    { "id": "day-7", "date": "2026-08-01", "title": "Ringsaker → Gothenburg", "distanceKm": 360, "weather": "Sunny spells · 20°", "hotelId": "home", "summary": "Final drive south to Gothenburg and home.", "highlights": ["Mjøsa departure", "Swedish border", "Home"], "events": [{ "time": "09:00", "title": "Leave Ringsaker", "kind": "drive", "duration": "5h 30m", "distance": "360 km", "notes": "Final charging stop before Gothenburg." }, { "time": "15:00", "title": "Arrive home in Gothenburg", "kind": "hotel", "duration": "", "distance": "", "notes": "Trip complete." }] }
+    {
+      "id": "day-1", "date": "2026-07-26", "title": "Gothenburg → Geilo", "distanceKm": 480, "weather": "Partly cloudy · 17°", "hotelId": "havsdalsgrenda",
+      "summary": "Cross into Norway and settle into the mountains at Geilo.",
+      "highlights": ["Swedish–Norwegian border", "Hallingdal valley", "Sunset at Ustedalsfjorden"],
+      "events": [
+        { "time": "08:00", "title": "Leave Gothenburg", "kind": "drive", "duration": "3h 30m", "distance": "290 km", "notes": "Head north on E6 then E134 toward Drammen.", "lat": 57.708, "lng": 11.974, "road": "E6 → E134" },
+        { "time": "11:30", "title": "Charging stop — Drammen", "kind": "charge", "duration": "25 min", "distance": "", "notes": "IONITY Drammen, near Burger King for a snack.", "lat": 59.737, "lng": 10.205, "charger": "IONITY", "power": "350 kW", "connector": "CCS", "tip": "Burger King and toilets within 50m" },
+        { "time": "12:30", "title": "Continue via Hallingdal", "kind": "drive", "duration": "2h 30m", "distance": "190 km", "notes": "Beautiful valley drive along Rv7 through Gol and Ål.", "road": "Rv7" },
+        { "time": "15:00", "title": "Quick stop in Gol", "kind": "viewpoint", "duration": "20 min", "distance": "", "notes": "Stretch legs, playground for kids near the town centre.", "lat": 60.701, "lng": 8.946, "tip": "Good bakery at Gol Sentrum" },
+        { "time": "17:00", "title": "Check in at Havsdalsgrenda", "kind": "hotel", "duration": "", "distance": "", "notes": "Mountain apartment in Geilo. Unpack and relax.", "lat": 60.537, "lng": 8.221 }
+      ]
+    },
+    {
+      "id": "day-2", "date": "2026-07-27", "title": "Geilo → Flåm → Voss", "distanceKm": 225, "weather": "Light rain · 14°", "hotelId": "flatlandsmo",
+      "summary": "A mountain crossing, fjord views in Flåm, then on to Voss.",
+      "highlights": ["Hardangervidda plateau", "Flåm harbour", "Voss evening"],
+      "events": [
+        { "time": "09:00", "title": "Drive Geilo to Flåm", "kind": "drive", "duration": "2h 30m", "distance": "145 km", "notes": "Cross Hardangervidda, then descend steeply into Aurland/Flåm.", "lat": 60.537, "lng": 8.221, "road": "Rv7 → Rv50 → E16", "tip": "Pack waterproofs — weather changes quickly at altitude" },
+        { "time": "11:30", "title": "Arrive in Flåm", "kind": "viewpoint", "duration": "2h", "distance": "", "notes": "Walk the harbour, see the Flåm Railway station, lunch by the fjord.", "lat": 60.863, "lng": 7.113, "tip": "Ægir Brewery for lunch or Tørgarden Café for kids" },
+        { "time": "13:30", "title": "Charging in Flåm", "kind": "charge", "duration": "30 min", "distance": "", "notes": "Charge while exploring the harbour area.", "lat": 60.862, "lng": 7.114, "charger": "Mer", "power": "150 kW", "connector": "CCS" },
+        { "time": "14:30", "title": "Drive Flåm to Voss", "kind": "drive", "duration": "1h 30m", "distance": "80 km", "notes": "Scenic drive through Gudvangen and along Nærøyfjorden road.", "road": "E16", "tip": "Stop at Stalheim viewpoint if weather permits" },
+        { "time": "16:00", "title": "Check in at Flatlandsmo Camping", "kind": "hotel", "duration": "", "distance": "", "notes": "First of two nights in Voss. Cabins by the river.", "lat": 60.624, "lng": 6.431 }
+      ]
+    },
+    {
+      "id": "day-3", "date": "2026-07-28", "title": "Explore Voss", "distanceKm": 40, "weather": "Sunny spells · 18°", "hotelId": "flatlandsmo",
+      "summary": "A flexible day for Voss and the surrounding attractions.",
+      "highlights": ["Voss Gondol", "Lake Vangsvatnet", "Rain-day alternatives"],
+      "events": [
+        { "time": "10:00", "title": "Voss Gondol", "kind": "viewpoint", "duration": "2h", "distance": "5 km", "notes": "Cable car to Hanguren mountain. Panoramic views of Voss and surrounding peaks.", "lat": 60.629, "lng": 6.427, "tip": "Not suitable for children under 3 in windy conditions" },
+        { "time": "12:30", "title": "Lunch in Voss centre", "kind": "restaurant", "duration": "1h", "distance": "3 km", "notes": "Try Vossevangen for local food or pizza at Ringheim.", "lat": 60.629, "lng": 6.418, "tip": "Kids menu available at most restaurants" },
+        { "time": "14:00", "title": "Lake Vangsvatnet swim", "kind": "viewpoint", "duration": "2h", "distance": "2 km", "notes": "Sandy beach area, shallow entry. Perfect for children on a warm day.", "lat": 60.631, "lng": 6.439, "tip": "Bring towels and swim nappies for toddlers" },
+        { "time": "16:30", "title": "Rainy alternative: Voss Kulturhus", "kind": "viewpoint", "duration": "1h 30m", "distance": "2 km", "notes": "Indoor pool, bowling, and play area if weather turns.", "lat": 60.628, "lng": 6.414 },
+        { "time": "18:00", "title": "Return to Flatlandsmo", "kind": "hotel", "duration": "", "distance": "", "notes": "Second night in Voss. Easy evening.", "lat": 60.624, "lng": 6.431 }
+      ]
+    },
+    {
+      "id": "day-4", "date": "2026-07-29", "title": "Voss → Loen → Stryn / Hjelle", "distanceKm": 235, "weather": "Cloudy · 15°", "hotelId": "folven",
+      "summary": "Follow the fjords north via Loen to the Stryn and Hjelle area.",
+      "highlights": ["Loen Skylift", "Nordfjord", "Olden and Stryn"],
+      "events": [
+        { "time": "09:00", "title": "Leave Voss", "kind": "drive", "duration": "2h 30m", "distance": "140 km", "notes": "Drive north along E39 and Rv13 through dramatic fjord scenery.", "lat": 60.624, "lng": 6.431, "road": "E39 → Rv13 → Rv60" },
+        { "time": "11:30", "title": "Charging stop — Førde", "kind": "charge", "duration": "25 min", "distance": "", "notes": "Mer charger at Førde Handelspark. Coffee and toilets nearby.", "lat": 61.452, "lng": 5.857, "charger": "Mer", "power": "150 kW", "connector": "CCS", "tip": "Coop Extra next door for snacks" },
+        { "time": "13:00", "title": "Arrive Loen", "kind": "viewpoint", "duration": "2h", "distance": "70 km", "notes": "Take the Loen Skylift to Hoven (1011m). Spectacular Nordfjord views.", "lat": 61.868, "lng": 6.865, "tip": "Book skylift tickets online in advance. Not for very young children in strong wind." },
+        { "time": "15:30", "title": "Drive to Hjelle", "kind": "drive", "duration": "40 min", "distance": "25 km", "notes": "Short drive along Nordfjord to Hjelle/Stryn area.", "road": "Rv15" },
+        { "time": "16:30", "title": "Check in at Folven Camping", "kind": "hotel", "duration": "", "distance": "", "notes": "Cabins by the river in Hjelle. Mountain backdrop.", "lat": 61.91, "lng": 7.25 }
+      ]
+    },
+    {
+      "id": "day-5", "date": "2026-07-30", "title": "Hellesylt → Geiranger → Stryn", "distanceKm": 190, "weather": "Light rain · 13°", "hotelId": "folven",
+      "summary": "Take the booked Hellesylt–Geiranger ferry, then return to Stryn.",
+      "highlights": ["11:30 ferry booking", "Geirangerfjord", "Eagle Road"],
+      "events": [
+        { "time": "09:30", "title": "Drive to Hellesylt", "kind": "drive", "duration": "1h", "distance": "55 km", "notes": "Allow buffer time for the ferry. Arrive 15 min before departure.", "lat": 61.91, "lng": 7.25, "road": "Rv15 → Rv60" },
+        { "time": "10:45", "title": "Arrive Hellesylt terminal", "kind": "ferry", "duration": "45 min", "distance": "", "notes": "Board for the 11:30 departure. Keep booking confirmation ready.", "lat": 62.092, "lng": 6.869, "tip": "Stay in car or go to upper deck for views" },
+        { "time": "11:30", "title": "Ferry: Hellesylt → Geiranger", "kind": "ferry", "duration": "1h", "distance": "", "notes": "UNESCO World Heritage fjord. Seven Sisters and Suitor waterfalls visible from deck.", "lat": 62.1, "lng": 6.9, "tip": "Best views from starboard (right) side heading to Geiranger" },
+        { "time": "12:30", "title": "Explore Geiranger", "kind": "viewpoint", "duration": "2h", "distance": "", "notes": "Walk the village, visit the Norwegian Fjord Centre, lunch by the water.", "lat": 62.101, "lng": 7.206, "tip": "Brasserie Posten for food with a view" },
+        { "time": "14:30", "title": "Drive Eagle Road & Dalsnibba", "kind": "drive", "duration": "1h 30m", "distance": "30 km", "notes": "Ørnevegen (Eagle Road) — dramatic hairpins with fjord views. Optional Dalsnibba detour.", "road": "Rv63 (Eagle Road)", "lat": 62.101, "lng": 7.206, "tip": "Eagle Road is steep but well-maintained. Take it slow." },
+        { "time": "16:30", "title": "Return drive to Hjelle", "kind": "drive", "duration": "2h", "distance": "105 km", "notes": "Via Eidsdal ferry and Rv15 back to Stryn area.", "road": "Rv63 → Rv15" },
+        { "time": "18:30", "title": "Back at Folven Camping", "kind": "hotel", "duration": "", "distance": "", "notes": "Second night in Hjelle. Rest after a big day.", "lat": 61.91, "lng": 7.25 }
+      ]
+    },
+    {
+      "id": "day-6", "date": "2026-07-31", "title": "Stryn → Lillehammer / Ringsaker", "distanceKm": 390, "weather": "Partly cloudy · 18°", "hotelId": "ringsaker-home",
+      "summary": "A long scenic drive east to Ringsaker, near Lillehammer.",
+      "highlights": ["Ottadalen", "Lillehammer region", "Mjøsa sunset"],
+      "events": [
+        { "time": "08:30", "title": "Leave Stryn / Hjelle", "kind": "drive", "duration": "2h 30m", "distance": "165 km", "notes": "Drive through Ottadalen valley — beautiful river scenery.", "lat": 61.91, "lng": 7.25, "road": "Rv15 → E6" },
+        { "time": "11:00", "title": "Charging & lunch — Otta", "kind": "charge", "duration": "40 min", "distance": "", "notes": "Tesla Supercharger at Otta. Pizzeria nearby.", "lat": 61.772, "lng": 9.537, "charger": "Tesla Supercharger", "power": "250 kW", "connector": "CCS / Tesla", "tip": "Peppes Pizza within walking distance" },
+        { "time": "12:00", "title": "Continue south on E6", "kind": "drive", "duration": "2h", "distance": "150 km", "notes": "Follow E6 through Gudbrandsdalen valley toward Lillehammer.", "road": "E6", "tip": "Ringebu stave church visible from road — quick photo stop" },
+        { "time": "14:00", "title": "Lillehammer stop", "kind": "viewpoint", "duration": "1h", "distance": "5 km", "notes": "Walk Storgata (pedestrian street). Olympic town atmosphere.", "lat": 61.115, "lng": 10.466, "tip": "Maihaugen open-air museum if time allows (kids love it)" },
+        { "time": "15:30", "title": "Final drive to Ringsaker", "kind": "drive", "duration": "45 min", "distance": "70 km", "notes": "Short drive north along lake Mjøsa.", "road": "E6" },
+        { "time": "16:30", "title": "Arrive at Borkevegen 55", "kind": "hotel", "duration": "", "distance": "", "notes": "Overnight accommodation in Ringsaker. Relax by Mjøsa.", "lat": 60.88, "lng": 10.94 }
+      ]
+    },
+    {
+      "id": "day-7", "date": "2026-08-01", "title": "Ringsaker → Gothenburg", "distanceKm": 360, "weather": "Sunny spells · 20°", "hotelId": "home",
+      "summary": "Final drive south to Gothenburg and home.",
+      "highlights": ["Mjøsa departure", "Swedish border", "Home"],
+      "events": [
+        { "time": "09:00", "title": "Leave Ringsaker", "kind": "drive", "duration": "2h", "distance": "160 km", "notes": "Head south on E6 toward the Swedish border.", "lat": 60.88, "lng": 10.94, "road": "E6" },
+        { "time": "11:00", "title": "Charging stop — Svinesund", "kind": "charge", "duration": "25 min", "distance": "", "notes": "IONITY at the border. Last stop in Norway.", "lat": 59.098, "lng": 11.268, "charger": "IONITY", "power": "350 kW", "connector": "CCS", "tip": "Tax-free shop nearby if needed" },
+        { "time": "11:30", "title": "Cross into Sweden", "kind": "drive", "duration": "2h", "distance": "200 km", "notes": "E6 south through Uddevalla toward Gothenburg.", "road": "E6", "tip": "Last chance for cheap Norwegian snacks at the border" },
+        { "time": "14:00", "title": "Arrive home in Gothenburg", "kind": "hotel", "duration": "", "distance": "", "notes": "Trip complete. Unpack, rest, and relive the memories.", "lat": 57.708, "lng": 11.974 }
+      ]
+    }
   ],
   "hotels": [
     { "id": "havsdalsgrenda", "name": "Havsdalsgrenda Geilo Apartments", "location": "Geilo", "address": "Havsdalsvegen, 3580 Geilo", "checkIn": "16:00", "checkOut": "11:00", "parking": "Apartment parking", "charging": "Confirm EV charging with property", "bookingReference": "", "phone": "", "lat": 60.537, "lng": 8.221 },
@@ -17,10 +96,30 @@
     { "id": "home", "name": "Home", "location": "Gothenburg", "address": "Gothenburg", "checkIn": "", "checkOut": "", "parking": "", "charging": "", "bookingReference": "", "phone": "", "lat": 57.708, "lng": 11.974 }
   ],
   "places": [
+    { "id": "ionity-drammen", "name": "IONITY Drammen", "type": "charger", "lat": 59.737, "lng": 10.205, "description": "High-power charging hub on E134 route", "power": "350 kW", "hours": "24 hours" },
     { "id": "ionity-voss", "name": "IONITY Voss", "type": "charger", "lat": 60.628, "lng": 6.418, "description": "Six high-power CCS bays", "power": "350 kW", "hours": "24 hours" },
+    { "id": "mer-flam", "name": "Mer Flåm", "type": "charger", "lat": 60.862, "lng": 7.114, "description": "Fast charging at Flåm harbour", "power": "150 kW", "hours": "24 hours" },
+    { "id": "tesla-otta", "name": "Tesla Supercharger Otta", "type": "charger", "lat": 61.772, "lng": 9.537, "description": "Supercharger with CCS adapter support", "power": "250 kW", "hours": "24 hours" },
+    { "id": "ionity-svinesund", "name": "IONITY Svinesund", "type": "charger", "lat": 59.098, "lng": 11.268, "description": "Border crossing charging hub", "power": "350 kW", "hours": "24 hours" },
     { "id": "stegastein", "name": "Stegastein Viewpoint", "type": "viewpoint", "lat": 60.908, "lng": 7.207, "description": "Dramatic platform 650 m over Aurlandsfjord", "hours": "Always open" },
-    { "id": "naeroyfjord", "name": "Nærøyfjord Ferry", "type": "ferry", "lat": 60.887, "lng": 6.84, "description": "Scenic fjord crossing", "hours": "08:30 departure" }
+    { "id": "flam-harbour", "name": "Flåm Harbour", "type": "viewpoint", "lat": 60.863, "lng": 7.113, "description": "Fjord harbour with railway museum and shops", "hours": "08:00–20:00" },
+    { "id": "loen-skylift", "name": "Loen Skylift", "type": "viewpoint", "lat": 61.868, "lng": 6.865, "description": "Cable car to 1011m with Nordfjord panorama", "hours": "09:00–21:00" },
+    { "id": "geirangerfjord", "name": "Geirangerfjord", "type": "viewpoint", "lat": 62.101, "lng": 7.206, "description": "UNESCO World Heritage fjord — Seven Sisters waterfall", "hours": "Always open" },
+    { "id": "naeroyfjord", "name": "Nærøyfjord Ferry", "type": "ferry", "lat": 60.887, "lng": 6.84, "description": "Scenic fjord crossing", "hours": "08:30 departure" },
+    { "id": "hellesylt-ferry", "name": "Hellesylt–Geiranger Ferry", "type": "ferry", "lat": 62.092, "lng": 6.869, "description": "Booked 11:30 departure through Geirangerfjord", "hours": "Multiple daily" }
   ],
-  "packing": [{ "category": "Documents", "items": ["Passports", "Driving licence", "Ferry confirmation", "Insurance card"] }, { "category": "Clothing", "items": ["Waterproof shell", "Warm mid-layer", "Hiking shoes", "Swimwear"] }, { "category": "Electronics", "items": ["Phone chargers", "Camera batteries", "Power bank", "EU adapter"] }, { "category": "Car", "items": ["Tesla charging card", "Tyre kit", "First aid kit", "Reflective vests"] }],
-  "emergency": [{ "label": "Emergency services", "number": "112" }, { "label": "Medical emergency", "number": "113" }, { "label": "Police (non-emergency)", "number": "02800" }, { "label": "Tesla roadside assistance", "number": "+47 23 96 02 85" }]
+  "packing": [
+    { "category": "Documents", "items": ["Passports", "Driving licence", "Ferry confirmation", "Insurance card", "Hotel bookings", "Charging cards"] },
+    { "category": "Clothing", "items": ["Waterproof shell", "Warm mid-layer", "Hiking shoes", "Swimwear", "Sun hat", "Warm hat (mountains)"] },
+    { "category": "Electronics", "items": ["Phone chargers", "Camera batteries", "Power bank", "EU adapter", "Tablet for kids", "Headphones"] },
+    { "category": "Car", "items": ["Tesla charging card", "CCS adapter (Volvo)", "Tyre kit", "First aid kit", "Reflective vests", "Sunshade for windows"] },
+    { "category": "Kids", "items": ["Car seats", "Snacks", "Water bottles", "Colouring books", "Swim nappies", "Stroller"] }
+  ],
+  "emergency": [
+    { "label": "Emergency services", "number": "112" },
+    { "label": "Medical emergency", "number": "113" },
+    { "label": "Police (non-emergency)", "number": "02800" },
+    { "label": "Tesla roadside assistance", "number": "+47 23 96 02 85" },
+    { "label": "Volvo roadside assistance", "number": "+46 31 325 00 00" }
+  ]
 }
