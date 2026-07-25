@@ -1,0 +1,283 @@
+version: "1.0"
+status: LOCKED
+dayId: day-3
+
+metadata:
+  title: "Day 3"
+  subtitle: "Relax & Explore Voss"
+  theme: "Mountain Views • Local Culture • Easy Day"
+  date: "2026-07-28"
+
+route:
+  start:
+    name: "Flatlandsmo Camping"
+    city: "Voss"
+  destination:
+    name: "Flatlandsmo Camping"
+    city: "Voss"
+
+summary:
+  departureTime: "09:00"
+  targetArrival: "16:30"
+  estimatedDrivingTime: "1h 00m"
+  plannedStopTime: "5h 30m"
+  totalTravelTime: "7h 30m"
+
+driver:
+  dayType: "Exploration"
+  chargingStrategy:
+    philosophy: "No DC charging required. Overnight charging at campsite."
+    preferredLocation: null
+    backupLocations: []
+    decisionRule: "Overnight charging sufficient for today's minimal driving."
+    dcChargingRequired: false
+    overnightCharging: true
+  notes:
+    - "Relaxed driving day."
+    - "No long-distance travel."
+    - "Avoid unnecessary driving."
+
+navigator:
+  regroupPoint: "Voss Gondol"
+  weatherReminder: "Mountain top conditions may differ from valley. Check before gondola."
+  chargingReminder: "No charging needed today. Overnight charge tonight."
+  notes:
+    - "Voss Gondol is the highlight — go early for best conditions."
+    - "Bordalsgjelet offers a different landscape from the rest of the trip."
+
+###############################################################
+
+stops:
+
+###############################################################
+
+  - id: departure
+    sequence: 1
+    type: departure
+    fixed: true
+    title: "Flatlandsmo Camping"
+    schedule:
+      arrival: "09:00"
+      departure: "09:00"
+      stayMinutes: 0
+    purpose:
+      - "Start relaxed exploration day"
+    beforeLeaving:
+      - "Breakfast completed"
+      - "Weather checked"
+      - "Camera batteries charged"
+      - "Light daypack packed"
+
+###############################################################
+
+  - id: gondola
+    sequence: 2
+    type: attraction
+    fixed: true
+    title: "Voss Gondol"
+    experience:
+      priority: Signature
+      estimatedMemory: "5/5"
+      whyStopHere: "The easiest way to experience Norway's mountains without a demanding hike."
+    schedule:
+      arrival: "09:15"
+      departure: "11:30"
+      stayMinutes: 135
+    purpose:
+      - "Mountain Panorama"
+      - "Easy Family Experience"
+      - "Photography"
+    navigation:
+      destination:
+        name: "Voss Gondol"
+      parking:
+        name: "Voss Gondol Parking"
+        confidence: VERIFIED
+        gps:
+          latitude:
+          longitude:
+        notes: "Use official gondola visitor parking."
+    family:
+      walkingDifficulty: Easy
+      strollerFriendly: true
+      toilets: true
+      restaurant: true
+    weather:
+      good: "Explore Hangurstoppen."
+      rain: "Enjoy gondola and indoor facilities."
+    story: "The easiest way to experience Norway's mountains without a demanding hike."
+
+###############################################################
+
+  - id: lunch
+    sequence: 3
+    type: meal
+    fixed: true
+    title: "Lunch Decision"
+    schedule:
+      arrival: "12:00"
+      departure: "13:00"
+      stayMinutes: 60
+    preferred:
+      type: "Homemade Lunch"
+      recommendation:
+        - "Hangurstoppen picnic area"
+        - "Vangsvatnet lakeside"
+        - "Any scenic location during today's exploration"
+    alternative:
+      type: "Local Café"
+      recommendation:
+        name: "Vangen Café"
+        reason:
+          - "Indoor seating"
+          - "Vegetarian options"
+          - "Central location"
+          - "Good rainy-day alternative"
+    weather:
+      good: "Homemade outdoor lunch."
+      rain: "Indoor café."
+
+###############################################################
+
+  - id: bordalsgjelet
+    sequence: 4
+    type: attraction
+    fixed: true
+    title: "Bordalsgjelet Gorge"
+    experience:
+      priority: Major
+      estimatedMemory: "4/5"
+      whyStopHere: "A dramatic gorge shaped by thousands of years of flowing water."
+    schedule:
+      arrival: "13:20"
+      departure: "14:20"
+      stayMinutes: 60
+    purpose:
+      - "Nature Walk"
+      - "Photography"
+      - "Different landscape"
+    navigation:
+      destination:
+        name: "Bordalsgjelet"
+      parking:
+        name: "Bordalsgjelet Visitor Parking"
+        confidence: VERIFIED
+        gps:
+          latitude:
+          longitude:
+        notes: "Use official visitor parking."
+    family:
+      walkingDifficulty: Easy
+      strollerFriendly: false
+    weather:
+      good: "Walk through the gorge."
+      rain: "Short visit or skip."
+    story: "A dramatic gorge shaped by thousands of years of flowing water."
+
+###############################################################
+
+  - id: explore
+    sequence: 5
+    type: flexible
+    fixed: false
+    optional: true
+    title: "Explore Voss"
+    schedule:
+      arrival: "14:40"
+      departure: "16:00"
+      stayMinutes: 80
+    options:
+      - "Walk around Vangsvatnet"
+      - "Visit local shops"
+      - "Coffee & bakery"
+      - "Ice cream by the lake"
+      - "Relax before tomorrow"
+    recommendation: "Choose what feels right today. There is no fixed plan."
+
+###############################################################
+
+  - id: campsite
+    sequence: 6
+    type: accommodation
+    fixed: true
+    title: "Return to Flatlandsmo Camping"
+    schedule:
+      arrival: "16:30"
+      departure: null
+      stayMinutes: null
+    purpose:
+      - "Relax"
+      - "Dinner"
+      - "Prepare luggage"
+      - "Charge both EVs"
+
+###############################################################
+
+arrival:
+  accommodation: "Flatlandsmo Camping"
+  parking: "At accommodation"
+  eveningPlan:
+    - "Relax"
+    - "Dinner"
+    - "Prepare luggage"
+    - "Charge both EVs"
+  tomorrowPreparation: "Pack for departure from Voss — moving to Hjelle tomorrow"
+
+###############################################################
+
+passingHighlights:
+  - "Lake Vangsvatnet"
+  - "Traditional wooden houses"
+  - "Voss Church"
+  - "Mountain panorama"
+
+###############################################################
+
+decisionPoints:
+  - id: lunch
+    trigger: "Lunch time"
+    ifGood: "Homemade lunch outdoors."
+    ifRain: "Vangen Café."
+  - id: afternoon
+    trigger: "Energy level"
+    ifRelaxed: "Walk around Vangsvatnet."
+    ifTired: "Return to campsite."
+
+###############################################################
+
+roadbookRules:
+  noRush: true
+  homemadeFoodPriority: true
+  weatherAdaptive: true
+  parkingFirstNavigation: true
+  avoidUnnecessaryDriving: true
+
+###############################################################
+
+routeAudit:
+  drivingDistance: "Minimal"
+  unnecessaryDetours: false
+  chargingIntegrated: true
+  weatherBackup: true
+  stressLevel: "Very Low"
+
+###############################################################
+
+editorialNotes:
+  pageMood: "Relaxed"
+  heroImage: "Voss Gondol overlooking Voss."
+  designGuidance:
+    - "Use softer blue/green color palette."
+    - "Fewer cards than Day 2."
+    - "More white space."
+    - "Large photography."
+    - "Lunch shown as a decision card, not a mandatory restaurant."
+    - "Optional activities visually separated from anchor itinerary."
+    - "Emphasize enjoying Voss rather than checking attractions off a list."
+
+###############################################################
+
+todos:
+  - "Field verify preferred parking at Bordalsgjelet."
+  - "Add GPS coordinates for all parking locations."
+  - "Add recommended bakery if visited during the trip."

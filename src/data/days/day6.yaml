@@ -1,0 +1,308 @@
+version: "1.0"
+status: LOCKED
+dayId: day-6
+
+metadata:
+  title: "Day 6"
+  subtitle: "Across the Mountains & Through Norway's History"
+  theme: "Historic Norway • Mountain Passes • Scenic Drive"
+  date: "2026-07-31"
+
+route:
+  start:
+    name: "Folven Adventure Camp"
+    address: "Folven, 6798 Hjelle, Norway"
+  destination:
+    name: "Borkevegen 55"
+    address: "Borkevegen 55, Ringsaker, Norway"
+
+summary:
+  departureTime: "09:00"
+  targetArrival: "17:15"
+  estimatedDrivingTime: "5h 45m"
+  plannedStopTime: "2h 30m"
+  totalTravelTime: "8h 15m"
+
+driver:
+  dayType: "Scenic Heritage Drive"
+  chargingStrategy:
+    philosophy: "Charge only if naturally integrated with lunch or regroup point."
+    preferredLocation: "Borgund / Tyinkrysset area"
+    backupLocations:
+      - "Fagernes"
+      - "Lillehammer"
+    decisionRule: "If battery >60% after lunch, continue. Otherwise charge."
+  notes:
+    - "Mountain driving throughout the morning."
+    - "Today's route includes the historic Borgund Stave Church."
+    - "Expect increased tourist traffic in summer."
+
+navigator:
+  regroupPoint: "Borgund Stave Church"
+  weatherReminder: "Mountain passes can be cold even in summer. Bring layers."
+  chargingReminder: "Charge only if needed at Borgund/Tyinkrysset. Battery check at regroup."
+  notes:
+    - "Borgund Stave Church is the Experience of the Day."
+    - "Route Decision: Scenic Heritage Route (A) is the official selection."
+
+###############################################################
+
+accommodation:
+  name: "Borkevegen 55"
+  address: "Borkevegen 55, Ringsaker, Norway"
+  booking:
+    confirmed: true
+    checkIn: "2026-07-31"
+  parking:
+    name: "Borkevegen 55"
+    confidence: VERIFIED
+    gps:
+      latitude:
+      longitude:
+    notes: ""
+
+###############################################################
+
+routeDecision:
+  enabled: true
+  selectedRoute: "Option A"
+  recommendation: "Selected as the official Roadbook route."
+  options:
+    - id: optionA
+      title: "Scenic Heritage Route"
+      badge: "Recommended"
+      selected: true
+      experienceOfTheDay: "Borgund Stave Church"
+      pros:
+        - "Historic landmark"
+        - "Scenic mountain crossing"
+        - "Visitor Centre"
+        - "Excellent family stop"
+        - "Strong photography opportunities"
+      cons:
+        - "Slightly longer journey"
+        - "More winding roads"
+    - id: optionB
+      title: "Direct Route"
+      badge: "Alternative"
+      selected: false
+      pros:
+        - "Earlier arrival"
+        - "Less mountain driving"
+      cons:
+        - "Misses Borgund Stave Church"
+
+###############################################################
+
+stops:
+
+###############################################################
+
+  - id: departure
+    sequence: 1
+    type: departure
+    fixed: true
+    title: "Folven Adventure Camp"
+    schedule:
+      arrival: "09:00"
+      departure: "09:00"
+      stayMinutes: 0
+    beforeLeaving:
+      - "Breakfast completed"
+      - "Weather checked"
+      - "Both EVs charged if possible"
+      - "Homemade lunch packed"
+      - "Camera batteries charged"
+
+###############################################################
+
+  - id: borgund
+    sequence: 2
+    type: attraction
+    fixed: true
+    title: "Borgund Stave Church"
+    experience:
+      priority: Signature
+      estimatedMemory: "5/5"
+      whyStopHere: "Norway's best preserved medieval stave church, built around the year 1200 and one of the country's most iconic cultural landmarks."
+    schedule:
+      arrival: "11:00"
+      departure: "12:00"
+      stayMinutes: 60
+    purpose:
+      - "Cultural heritage"
+      - "Photography"
+      - "Visitor Centre"
+      - "Family experience"
+    navigation:
+      destination:
+        name: "Borgund Stave Church"
+      parking:
+        name: "Borgund Visitor Centre Parking"
+        confidence: VERIFIED
+        gps:
+          latitude:
+          longitude:
+        notes: "Use the official visitor centre parking."
+    family:
+      walkingDifficulty: Easy
+      strollerFriendly: Yes
+      toilets: true
+      visitorCentre: true
+    weather:
+      good: "Explore church and surroundings."
+      rain: "Visit Visitor Centre. Church still impressive in rain."
+    story: "Experience one of Europe's finest surviving medieval wooden churches."
+
+###############################################################
+
+  - id: regroup
+    sequence: 3
+    type: regroup
+    fixed: true
+    title: "Lunch & Regroup"
+    schedule:
+      arrival: "12:05"
+      departure: "13:00"
+      stayMinutes: 55
+    preferred:
+      type: "Homemade Lunch"
+      recommendation:
+        - "Picnic area near Borgund Visitor Centre"
+    alternative:
+      type: "Visitor Centre Café"
+      recommendation:
+        reason:
+          - "Indoor seating"
+          - "Coffee"
+          - "Waffles"
+          - "Vegetarian snacks"
+    regroupPurpose:
+      - "Both vehicles meet"
+      - "Lunch"
+      - "Toilets"
+      - "Stretch"
+      - "Battery check"
+      - "Decide if charging is required"
+
+###############################################################
+
+  - id: charging
+    sequence: 4
+    type: charging
+    fixed: false
+    optional: true
+    title: "EV Charging"
+    schedule:
+      arrival: "13:05"
+      departure: "13:35"
+      stayMinutes: 30
+    strategy: "Charge only if required."
+    preferred:
+      location: "Tyinkrysset / along today's route"
+    notes:
+      - "Tesla and Volvo regroup before departure."
+
+###############################################################
+
+  - id: mountainDrive
+    sequence: 5
+    type: scenicDrive
+    fixed: true
+    title: "Mountain Crossing"
+    schedule:
+      arrival: "13:35"
+      departure: "16:45"
+      stayMinutes: null
+    purpose:
+      - "Scenic driving"
+      - "Mountain views"
+      - "Relaxed journey"
+
+###############################################################
+
+  - id: arrival
+    sequence: 6
+    type: accommodation
+    fixed: true
+    title: "Borkevegen 55"
+    schedule:
+      arrival: "17:15"
+      departure: null
+      stayMinutes: null
+    purpose:
+      - "Check-in"
+      - "Dinner"
+      - "Relax"
+      - "Prepare for final day"
+
+###############################################################
+
+arrival:
+  accommodation: "Borkevegen 55"
+  parking: "At accommodation"
+  eveningPlan:
+    - "Check-in"
+    - "Dinner"
+    - "Relax"
+    - "Prepare for final day"
+  tomorrowPreparation: "Final day — comfortable drive home to Gothenburg"
+
+###############################################################
+
+passingHighlights:
+  - "Historic mountain farms"
+  - "Filefjell mountain landscape"
+  - "Valdres Valley"
+  - "Traditional Norwegian villages"
+
+###############################################################
+
+decisionPoints:
+  - id: weather
+    trigger: "Before Departure"
+    ifGood: "Follow Scenic Heritage Route."
+    ifRain: "Driver may choose Direct Route."
+  - id: charging
+    trigger: "Lunch"
+    ifBatteryAbove60: "Continue without charging."
+    otherwise: "Charge before continuing."
+
+###############################################################
+
+roadbookRules:
+  homemadeFoodPriority: true
+  regroupAfterLunch: true
+  weatherAdaptive: true
+  avoidUnnecessaryDriving: true
+
+###############################################################
+
+routeAudit:
+  experienceOfTheDay: "Borgund Stave Church"
+  driving: "★★★★☆"
+  scenery: "★★★★★"
+  culturalValue: "★★★★★"
+  stressLevel: "★★★★☆"
+  familyFriendly: "★★★★★"
+
+###############################################################
+
+editorialNotes:
+  pageMood: "Historic"
+  heroImage: "Borgund Stave Church"
+  designGuidance:
+    - "Warm wood textures inspired by stave churches."
+    - "Deep forest green accents."
+    - "Prominent Route Decision Card near the top."
+    - "Large Experience of the Day section."
+    - "Highlight the Lunch & Regroup card."
+    - "Show Route B as a collapsed alternative."
+
+###############################################################
+
+todos:
+  - "Verify Borgund Stave Church parking GPS."
+  - "Verify visitor centre opening hours."
+  - "Confirm preferred EV charging location along the selected route."
+  - "Add GPS coordinates for regroup point and accommodation."
