@@ -59,7 +59,10 @@ export function DayPage({ day }: DayPageProps) {
               )
             }
             // Render experience card for attraction/experience stops with Signature/Major priority
-            if (stop.experience && (stop.experience.priority === 'Signature' || stop.experience.priority === 'Major')) {
+            if (
+              stop.experience &&
+              (stop.experience.priority === 'Signature' || stop.experience.priority === 'Major')
+            ) {
               return (
                 <div key={stop.id}>
                   <ExperienceCard stop={stop} />

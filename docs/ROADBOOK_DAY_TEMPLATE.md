@@ -1,4 +1,5 @@
 # Norway Road Trip Companion
+
 # ROADBOOK_DAY_TEMPLATE.md
 
 Version: 2.0

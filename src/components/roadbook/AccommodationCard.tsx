@@ -69,9 +69,7 @@ export function AccommodationCard({ accommodation, booking }: AccommodationCardP
 
       {booking && (
         <div className="rb-accommodation-card__booking">
-          <h3 className="rb-accommodation-card__booking-title">
-            🎫 {booking.activity}
-          </h3>
+          <h3 className="rb-accommodation-card__booking-title">🎫 {booking.activity}</h3>
           <div className="rb-accommodation-card__booking-details">
             <div className="rb-accommodation-card__item">
               <span className="rb-accommodation-card__label">Status</span>

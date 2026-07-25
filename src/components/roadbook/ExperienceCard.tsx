@@ -29,9 +29,7 @@ export function ExperienceCard({ stop }: ExperienceCardProps) {
       </h3>
       <p className="rb-experience-card__why">{experience.whyStopHere}</p>
       <div className="rb-experience-card__meta">
-        <span className="rb-experience-card__memory">
-          Memory: {experience.estimatedMemory}
-        </span>
+        <span className="rb-experience-card__memory">Memory: {experience.estimatedMemory}</span>
         {stop.schedule.stayMinutes != null && (
           <span className="rb-experience-card__duration">
             Recommended: {stop.schedule.stayMinutes} min

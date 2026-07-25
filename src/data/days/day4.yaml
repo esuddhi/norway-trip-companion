@@ -1,269 +1,268 @@
-version: "1.0"
+version: '1.0'
 status: LOCKED
 dayId: day-4
 
 metadata:
-  title: "Day 4"
-  subtitle: "Glaciers, Emerald Lakes & High Mountains"
-  theme: "Mountain Adventure"
-  date: "2026-07-29"
+  title: 'Day 4'
+  subtitle: 'Glaciers, Emerald Lakes & High Mountains'
+  theme: 'Mountain Adventure'
+  date: '2026-07-29'
 
 route:
   start:
-    name: "Flatlandsmo Camping"
-    city: "Voss"
+    name: 'Flatlandsmo Camping'
+    city: 'Voss'
   destination:
-    name: "Folven Adventure Camp"
-    village: "Hjelle"
+    name: 'Folven Adventure Camp'
+    village: 'Hjelle'
 
 summary:
-  departureTime: "09:00"
-  targetArrival: "16:30-17:00"
-  estimatedDrivingTime: "4h 15m"
-  plannedStopTime: "3h 15m"
-  totalTravelTime: "7h 30m"
+  departureTime: '09:00'
+  targetArrival: '16:30-17:00'
+  estimatedDrivingTime: '4h 15m'
+  plannedStopTime: '3h 15m'
+  totalTravelTime: '7h 30m'
 
 driver:
-  dayType: "Adventure"
+  dayType: 'Adventure'
   chargingStrategy:
-    philosophy: "Prefer overnight charging at accommodation."
-    preferredLocation: "Loen (if needed)"
+    philosophy: 'Prefer overnight charging at accommodation.'
+    preferredLocation: 'Loen (if needed)'
     backupLocations:
-      - "Loen"
-      - "Stryn"
-    decisionRule: "If battery >50% at Loen, continue. Otherwise charge."
+      - 'Loen'
+      - 'Stryn'
+    decisionRule: 'If battery >50% at Loen, continue. Otherwise charge.'
   notes:
-    - "Mountain roads throughout the day."
-    - "Expect tourist traffic near Loen."
+    - 'Mountain roads throughout the day.'
+    - 'Expect tourist traffic near Loen.'
     - "Prepare for tomorrow's ferry."
 
 navigator:
-  regroupPoint: "Loen Skylift"
-  weatherReminder: "Mountain top conditions affect Skylift experience. Check before riding."
-  chargingReminder: "Overnight charging at Folven preferred. DC only if needed at Loen/Stryn."
+  regroupPoint: 'Loen Skylift'
+  weatherReminder: 'Mountain top conditions affect Skylift experience. Check before riding.'
+  chargingReminder: 'Overnight charging at Folven preferred. DC only if needed at Loen/Stryn.'
   notes:
-    - "Loen Skylift is the Experience of the Day."
-    - "Lovatnet is a stunning secondary experience."
-    - "Reminder: Tomorrow is the Hellesylt → Geiranger ferry."
+    - 'Loen Skylift is the Experience of the Day.'
+    - 'Lovatnet is a stunning secondary experience.'
+    - 'Reminder: Tomorrow is the Hellesylt → Geiranger ferry.'
 
 ###############################################################
 
 accommodation:
-  name: "Folven Adventure Camp"
-  address: "Folven, 6798 Hjelle, Norway"
+  name: 'Folven Adventure Camp'
+  address: 'Folven, 6798 Hjelle, Norway'
   booking:
     confirmed: true
-    checkIn: "2026-07-29"
-    checkOut: "2026-07-31"
+    checkIn: '2026-07-29'
+    checkOut: '2026-07-31'
   parking:
-    name: "Folven Adventure Camp"
+    name: 'Folven Adventure Camp'
     confidence: VERIFIED
     gps:
       latitude:
       longitude:
-    notes: "Follow guest parking signs."
+    notes: 'Follow guest parking signs.'
   charging:
     overnight:
-      status: "Verify availability on arrival."
+      status: 'Verify availability on arrival.'
     backup:
-      - "Loen"
-      - "Stryn"
+      - 'Loen'
+      - 'Stryn'
 
 ###############################################################
 
 stops:
-
-###############################################################
+  ###############################################################
 
   - id: departure
     sequence: 1
     type: departure
     fixed: true
-    title: "Flatlandsmo Camping"
+    title: 'Flatlandsmo Camping'
     schedule:
-      arrival: "09:00"
-      departure: "09:00"
+      arrival: '09:00'
+      departure: '09:00'
       stayMinutes: 0
     beforeLeaving:
-      - "Breakfast completed"
-      - "Weather checked"
-      - "Both EVs sufficiently charged"
-      - "Homemade lunch packed"
-      - "Camera batteries charged"
+      - 'Breakfast completed'
+      - 'Weather checked'
+      - 'Both EVs sufficiently charged'
+      - 'Homemade lunch packed'
+      - 'Camera batteries charged'
 
-###############################################################
+  ###############################################################
 
   - id: loenSkylift
     sequence: 2
     type: attraction
     fixed: true
-    title: "Loen Skylift"
+    title: 'Loen Skylift'
     experience:
       priority: Signature
-      estimatedMemory: "5/5"
+      estimatedMemory: '5/5'
       whyStopHere: "Ride one of the world's steepest cable cars to Mount Hoven for panoramic views of Nordfjord."
     schedule:
-      arrival: "11:15"
-      departure: "13:00"
+      arrival: '11:15'
+      departure: '13:00'
       stayMinutes: 105
     purpose:
-      - "Experience of the Day"
-      - "Mountain panorama"
-      - "Family photography"
-      - "Easy alpine walks"
+      - 'Experience of the Day'
+      - 'Mountain panorama'
+      - 'Family photography'
+      - 'Easy alpine walks'
     navigation:
       destination:
-        name: "Loen Skylift"
+        name: 'Loen Skylift'
       parking:
-        name: "Official Skylift Parking"
+        name: 'Official Skylift Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: "Use the official visitor parking area."
+        notes: 'Use the official visitor parking area.'
     family:
       walkingDifficulty: Easy
       strollerFriendly: true
       toilets: true
       restaurant: true
     weather:
-      good: "Explore Mount Hoven."
-      rain: "Ride the gondola and enjoy indoor facilities."
+      good: 'Explore Mount Hoven.'
+      rain: 'Ride the gondola and enjoy indoor facilities.'
     story: "Today's signature experience."
 
-###############################################################
+  ###############################################################
 
   - id: lunch
     sequence: 3
     type: meal
     fixed: true
-    title: "Lunch Decision"
+    title: 'Lunch Decision'
     schedule:
-      arrival: "13:00"
-      departure: "13:45"
+      arrival: '13:00'
+      departure: '13:45'
       stayMinutes: 45
     preferred:
-      type: "Homemade Lunch"
+      type: 'Homemade Lunch'
       recommendation:
-        - "Mount Hoven picnic area (good weather)"
-        - "Lovatnet lakeside"
+        - 'Mount Hoven picnic area (good weather)'
+        - 'Lovatnet lakeside'
     alternative:
-      type: "Local Café"
+      type: 'Local Café'
       recommendation:
-        name: "Restaurant Hoven"
+        name: 'Restaurant Hoven'
         reason:
-          - "Poor weather"
-          - "Forgot lunch"
-          - "Indoor seating"
-          - "Panoramic mountain views"
+          - 'Poor weather'
+          - 'Forgot lunch'
+          - 'Indoor seating'
+          - 'Panoramic mountain views'
 
-###############################################################
+  ###############################################################
 
   - id: lovatnet
     sequence: 4
     type: attraction
     fixed: true
-    title: "Lovatnet"
+    title: 'Lovatnet'
     experience:
       priority: Major
-      estimatedMemory: "5/5"
+      estimatedMemory: '5/5'
       whyStopHere: "Experience one of Norway's most beautiful glacier-fed lakes."
     schedule:
-      arrival: "14:10"
-      departure: "15:30"
+      arrival: '14:10'
+      departure: '15:30'
       stayMinutes: 80
     purpose:
-      - "Relax"
-      - "Photography"
-      - "Short lakeside walk"
+      - 'Relax'
+      - 'Photography'
+      - 'Short lakeside walk'
     navigation:
       destination:
-        name: "Lovatnet"
+        name: 'Lovatnet'
       parking:
-        name: "Lovatnet Lakeside Parking"
+        name: 'Lovatnet Lakeside Parking'
         confidence: RECOMMENDED
         gps:
           latitude:
           longitude:
-        notes: "Use the nearest official lakeside parking."
+        notes: 'Use the nearest official lakeside parking.'
     family:
       walkingDifficulty: Easy
       strollerFriendly: Partial
     weather:
-      good: "Relax by the lake."
-      rain: "Short visit before continuing."
-    story: "Emerald water created by glacier melt surrounded by dramatic peaks."
+      good: 'Relax by the lake.'
+      rain: 'Short visit before continuing.'
+    story: 'Emerald water created by glacier melt surrounded by dramatic peaks.'
 
-###############################################################
+  ###############################################################
 
   - id: optional
     sequence: 5
     type: flexible
     fixed: false
     optional: true
-    title: "Optional Scenic Stop"
+    title: 'Optional Scenic Stop'
     experience:
       priority: Optional
-      estimatedMemory: "3/5"
-      whyStopHere: "Additional viewpoint if energy allows."
+      estimatedMemory: '3/5'
+      whyStopHere: 'Additional viewpoint if energy allows.'
     schedule:
-      arrival: "15:40"
-      departure: "16:00"
+      arrival: '15:40'
+      departure: '16:00'
       stayMinutes: 20
     options:
-      - "Loen village"
-      - "Additional Lovatnet viewpoint"
-    recommendation: "Only if everyone still has energy."
+      - 'Loen village'
+      - 'Additional Lovatnet viewpoint'
+    recommendation: 'Only if everyone still has energy.'
 
-###############################################################
+  ###############################################################
 
   - id: folven
     sequence: 6
     type: accommodation
     fixed: true
-    title: "Folven Adventure Camp"
+    title: 'Folven Adventure Camp'
     schedule:
-      arrival: "16:45"
+      arrival: '16:45'
       departure: null
       stayMinutes: null
     purpose:
-      - "Check-in"
-      - "Relax"
-      - "Dinner"
+      - 'Check-in'
+      - 'Relax'
+      - 'Dinner'
       - "Prepare for tomorrow's ferry"
 
 ###############################################################
 
 arrival:
-  accommodation: "Folven Adventure Camp"
-  parking: "Guest parking at Folven"
+  accommodation: 'Folven Adventure Camp'
+  parking: 'Guest parking at Folven'
   eveningPlan:
-    - "Check-in"
-    - "Relax"
-    - "Dinner"
-    - "Charge EVs if available"
+    - 'Check-in'
+    - 'Relax'
+    - 'Dinner'
+    - 'Charge EVs if available'
     - "Prepare for tomorrow's ferry"
-  tomorrowPreparation: "Ferry departs 11:30 from Hellesylt. Leave by 09:15."
+  tomorrowPreparation: 'Ferry departs 11:30 from Hellesylt. Leave by 09:15.'
 
 ###############################################################
 
 passingHighlights:
-  - "Nordfjord"
-  - "Loen Church"
-  - "Glacier-fed rivers"
-  - "Traditional mountain farms"
+  - 'Nordfjord'
+  - 'Loen Church'
+  - 'Glacier-fed rivers'
+  - 'Traditional mountain farms'
 
 ###############################################################
 
 decisionPoints:
   - id: lunch
-    trigger: "Lunch"
-    ifGood: "Homemade picnic"
-    ifRain: "Restaurant Hoven"
+    trigger: 'Lunch'
+    ifGood: 'Homemade picnic'
+    ifRain: 'Restaurant Hoven'
   - id: optionalStop
-    trigger: "Time and energy"
-    ifAhead: "Enjoy one additional viewpoint"
-    ifBehind: "Continue directly to Folven Adventure Camp"
+    trigger: 'Time and energy'
+    ifAhead: 'Enjoy one additional viewpoint'
+    ifBehind: 'Continue directly to Folven Adventure Camp'
 
 ###############################################################
 
@@ -276,7 +275,7 @@ roadbookRules:
 ###############################################################
 
 routeAudit:
-  experienceOfTheDay: "Loen Skylift"
+  experienceOfTheDay: 'Loen Skylift'
   unnecessaryDetours: false
   chargingIntegrated: true
   weatherBackup: true
@@ -285,20 +284,20 @@ routeAudit:
 ###############################################################
 
 editorialNotes:
-  pageMood: "Majestic"
-  heroImage: "Loen Skylift overlooking Nordfjord"
+  pageMood: 'Majestic'
+  heroImage: 'Loen Skylift overlooking Nordfjord'
   designGuidance:
-    - "Glacier blue and emerald green accents."
-    - "Large hero image for Loen Skylift."
-    - "Highlight Experience of the Day."
-    - "Lunch as a decision card."
-    - "Lovatnet as the secondary feature."
-    - "Prominent accommodation card for Folven Adventure Camp."
-    - "Reminder banner: Tomorrow 11:30 Hellesylt → Geiranger ferry."
+    - 'Glacier blue and emerald green accents.'
+    - 'Large hero image for Loen Skylift.'
+    - 'Highlight Experience of the Day.'
+    - 'Lunch as a decision card.'
+    - 'Lovatnet as the secondary feature.'
+    - 'Prominent accommodation card for Folven Adventure Camp.'
+    - 'Reminder banner: Tomorrow 11:30 Hellesylt → Geiranger ferry.'
 
 ###############################################################
 
 todos:
-  - "Add GPS coordinates for Loen Skylift parking."
-  - "Add GPS coordinates for preferred Lovatnet parking."
-  - "Verify overnight EV charging availability at Folven Adventure Camp."
+  - 'Add GPS coordinates for Loen Skylift parking.'
+  - 'Add GPS coordinates for preferred Lovatnet parking.'
+  - 'Verify overnight EV charging availability at Folven Adventure Camp.'

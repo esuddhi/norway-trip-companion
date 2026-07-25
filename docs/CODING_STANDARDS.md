@@ -47,16 +47,16 @@ Configured in `eslint.config.js`:
 
 ### Naming
 
-| Category | Convention | Example |
-|----------|-----------|---------|
-| Components | PascalCase | `DayCard`, `MapView` |
-| Functions | camelCase | `dateLabel`, `hotelFor` |
-| Constants | camelCase or UPPER_SNAKE | `tripData`, `MAX_TILES` |
-| Types/Interfaces | PascalCase | `TripData`, `AppState` |
-| Files (components) | PascalCase.tsx | `DayCard.tsx` |
-| Files (utilities) | camelCase.ts | `trip.ts` |
-| Files (tests) | match source + `.test` | `trip.test.ts` |
-| CSS classes | kebab-case | `day-card`, `hero-stats` |
+| Category           | Convention               | Example                  |
+| ------------------ | ------------------------ | ------------------------ |
+| Components         | PascalCase               | `DayCard`, `MapView`     |
+| Functions          | camelCase                | `dateLabel`, `hotelFor`  |
+| Constants          | camelCase or UPPER_SNAKE | `tripData`, `MAX_TILES`  |
+| Types/Interfaces   | PascalCase               | `TripData`, `AppState`   |
+| Files (components) | PascalCase.tsx           | `DayCard.tsx`            |
+| Files (utilities)  | camelCase.ts             | `trip.ts`                |
+| Files (tests)      | match source + `.test`   | `trip.test.ts`           |
+| CSS classes        | kebab-case               | `day-card`, `hero-stats` |
 
 ### Exports
 
@@ -77,7 +77,11 @@ Configured in `eslint.config.js`:
 ```tsx
 // Good
 export function DayCard({ day, index }: { day: TripData['days'][number]; index: number }) {
-  return <Link className="day-card" to={`/planner/${day.id}`}>...</Link>
+  return (
+    <Link className="day-card" to={`/planner/${day.id}`}>
+      ...
+    </Link>
+  )
 }
 ```
 

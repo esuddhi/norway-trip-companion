@@ -23,9 +23,7 @@ export default defineConfig({
         display: 'standalone',
         start_url: base,
         scope: base,
-        icons: [
-          { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
-        ],
+        icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,json}'],

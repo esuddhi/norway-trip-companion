@@ -65,17 +65,13 @@ export function ChargingCard({ stop }: ChargingCardProps) {
           {charging.estimatedChargeMinutes != null && (
             <div className="rb-charging-card__item">
               <span className="rb-charging-card__label">Est. Time</span>
-              <span className="rb-charging-card__value">
-                {charging.estimatedChargeMinutes} min
-              </span>
+              <span className="rb-charging-card__value">{charging.estimatedChargeMinutes} min</span>
             </div>
           )}
           {charging.compatible && charging.compatible.length > 0 && (
             <div className="rb-charging-card__item rb-charging-card__item--full">
               <span className="rb-charging-card__label">Compatible</span>
-              <span className="rb-charging-card__value">
-                {charging.compatible.join(', ')}
-              </span>
+              <span className="rb-charging-card__value">{charging.compatible.join(', ')}</span>
             </div>
           )}
         </div>

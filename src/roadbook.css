@@ -5,19 +5,19 @@
 
 /* --- Premium Dark Theme Variables --- */
 :root {
-  --rb-bg: #0B1720;
+  --rb-bg: #0b1720;
   --rb-bg-card: #152232;
-  --rb-bg-elevated: #1A2B3D;
-  --rb-bg-surface: #0F1D2A;
-  --rb-text: #F0F4F8;
-  --rb-text-secondary: #A8B8C8;
-  --rb-text-muted: #6B7F94;
-  --rb-accent: #D4B26A;
+  --rb-bg-elevated: #1a2b3d;
+  --rb-bg-surface: #0f1d2a;
+  --rb-text: #f0f4f8;
+  --rb-text-secondary: #a8b8c8;
+  --rb-text-muted: #6b7f94;
+  --rb-accent: #d4b26a;
   --rb-accent-dim: rgba(212, 178, 106, 0.15);
-  --rb-success: #3FA56A;
-  --rb-info: #6CA8FF;
-  --rb-warning: #E2B95D;
-  --rb-danger: #E85D5D;
+  --rb-success: #3fa56a;
+  --rb-info: #6ca8ff;
+  --rb-warning: #e2b95d;
+  --rb-danger: #e85d5d;
   --rb-border: rgba(255, 255, 255, 0.06);
   --rb-border-subtle: rgba(255, 255, 255, 0.03);
   --rb-radius: 16px;
@@ -39,7 +39,8 @@
   --rb-font-2xl: 1.75rem;
   --rb-font-3xl: 2.25rem;
   --rb-touch-min: 44px;
-  --rb-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  --rb-font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
 }
 
 /* --- Global Reset for Roadbook --- */
@@ -182,7 +183,6 @@
   letter-spacing: 0.02em;
 }
 
-
 /* --- Header (Redesigned) --- */
 .rb-header {
   padding: var(--rb-spacing-2xl) var(--rb-spacing-md) var(--rb-spacing-xl);
@@ -266,7 +266,6 @@
   color: var(--rb-text-muted);
   margin-top: 2px;
 }
-
 
 /* --- Card Base --- */
 .rb-card {
@@ -375,7 +374,7 @@
 }
 
 .rb-driver-card__note::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 8px;
@@ -437,7 +436,7 @@
 }
 
 .rb-navigator-card__note::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 8px;
@@ -446,7 +445,6 @@
   border-radius: 50%;
   background: var(--rb-info);
 }
-
 
 /* --- Timeline (Redesigned) --- */
 .rb-timeline {
@@ -549,7 +547,6 @@
   letter-spacing: 0.06em;
   color: var(--rb-text-muted);
 }
-
 
 /* --- Stop Card (Redesigned) --- */
 .rb-stop-card {
@@ -697,7 +694,7 @@
 }
 
 .rb-stop-card__before-leaving li::before {
-  content: "✓";
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--rb-success);
@@ -705,7 +702,7 @@
 }
 
 .rb-stop-card__conditions li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 2px;
   top: 10px;
@@ -714,7 +711,6 @@
   border-radius: 50%;
   background: var(--rb-warning);
 }
-
 
 /* --- Parking Section --- */
 .rb-parking {
@@ -843,7 +839,7 @@
 }
 
 .rb-experience-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -1073,7 +1069,6 @@
   background: rgba(63, 165, 106, 0.12);
   color: var(--rb-success);
 }
-
 
 /* --- Accommodation Card --- */
 .rb-accommodation-card__details {

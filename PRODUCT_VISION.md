@@ -26,18 +26,18 @@ Without becoming complicated.
 
 ### Primary
 
-| User | Needs |
-|------|-------|
-| Parents (2 families, 4 adults) | Plan efficiently, reduce stress, find kid-friendly stops |
-| Children (ages 3–14) | "Are we there yet?" answers, fun activities, short attention spans |
+| User                           | Needs                                                              |
+| ------------------------------ | ------------------------------------------------------------------ |
+| Parents (2 families, 4 adults) | Plan efficiently, reduce stress, find kid-friendly stops           |
+| Children (ages 3–14)           | "Are we there yet?" answers, fun activities, short attention spans |
 
 ### Secondary
 
-| User | Needs |
-|------|-------|
-| EV drivers (Tesla Model Y, Volvo EX40) | Charging confidence, range planning |
-| International tourists | Offline access, local knowledge, emergency info in English |
-| Road trip enthusiasts | Scenic routes, photography spots, hidden gems |
+| User                                   | Needs                                                      |
+| -------------------------------------- | ---------------------------------------------------------- |
+| EV drivers (Tesla Model Y, Volvo EX40) | Charging confidence, range planning                        |
+| International tourists                 | Offline access, local knowledge, emergency info in English |
+| Road trip enthusiasts                  | Scenic routes, photography spots, hidden gems              |
 
 ---
 
@@ -87,14 +87,14 @@ If a feature doesn't serve at least one of these, it doesn't belong.
 
 Inspired by Norway's landscape:
 
-| Name | Hex (approx) | Inspiration |
-|------|--------------|-------------|
-| Snow White | `#f5f5ef` | Fresh snow on mountain peaks |
-| Deep Fjord Blue | `#15333c` | Deep fjord water |
-| Forest Green | `#4f8c68` | Norwegian pine forests |
-| Granite Gray | `#687871` | Mountain rock faces |
-| Aurora Accent | `#d7e58f` | Northern lights glow |
-| Warm Gold | `#d7b563` | Midnight sun |
+| Name            | Hex (approx) | Inspiration                  |
+| --------------- | ------------ | ---------------------------- |
+| Snow White      | `#f5f5ef`    | Fresh snow on mountain peaks |
+| Deep Fjord Blue | `#15333c`    | Deep fjord water             |
+| Forest Green    | `#4f8c68`    | Norwegian pine forests       |
+| Granite Gray    | `#687871`    | Mountain rock faces          |
+| Aurora Accent   | `#d7e58f`    | Northern lights glow         |
+| Warm Gold       | `#d7b563`    | Midnight sun                 |
 
 Avoid overly saturated colors. The palette should feel natural and calming.
 
@@ -102,14 +102,14 @@ Avoid overly saturated colors. The palette should feel natural and calming.
 
 ## Trip Context
 
-| Detail | Value |
-|--------|-------|
-| Start | Gothenburg, Sweden |
-| Duration | 7 days (26 Jul – 1 Aug 2026) |
-| Vehicle | Tesla Model Y + Volvo EX40 |
-| Passengers | 4 adults, 4 children (ages 3–14) |
-| Priority | Nature, scenic drives, family activities, photography, food, short hikes, EV charging, comfort |
-| Style | Self-drive, avoid long detours |
+| Detail     | Value                                                                                          |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| Start      | Gothenburg, Sweden                                                                             |
+| Duration   | 7 days (26 Jul – 1 Aug 2026)                                                                   |
+| Vehicle    | Tesla Model Y + Volvo EX40                                                                     |
+| Passengers | 4 adults, 4 children (ages 3–14)                                                               |
+| Priority   | Nature, scenic drives, family activities, photography, food, short hikes, EV charging, comfort |
+| Style      | Self-drive, avoid long detours                                                                 |
 
 ### Locked Itinerary (Approved)
 

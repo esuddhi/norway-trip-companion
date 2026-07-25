@@ -54,15 +54,12 @@ export function MeetingPointCard({
         <div className="meeting-point-card__parking">
           <span className="meeting-point-card__label">Parking</span>
           <span className="meeting-point-card__parking-name">{parking.name}</span>
-          {parking.walkingDistanceMeters !== undefined &&
-            parking.walkingDistanceMeters > 0 && (
-              <span className="meeting-point-card__walking">
-                {parking.walkingDistanceMeters}m walk
-                {parking.walkingTimeMinutes
-                  ? ` · ${parking.walkingTimeMinutes} min`
-                  : ''}
-              </span>
-            )}
+          {parking.walkingDistanceMeters !== undefined && parking.walkingDistanceMeters > 0 && (
+            <span className="meeting-point-card__walking">
+              {parking.walkingDistanceMeters}m walk
+              {parking.walkingTimeMinutes ? ` · ${parking.walkingTimeMinutes} min` : ''}
+            </span>
+          )}
           <div className="meeting-point-card__nav-buttons">
             {parking.googleMapsUrl && (
               <a

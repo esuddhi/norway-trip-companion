@@ -19,7 +19,7 @@ The UI renders all days using the same reusable components without special-case 
 ## Top-Level Structure
 
 ```yaml
-version: "1.0"
+version: '1.0'
 status: LOCKED
 dayId: day-N
 
@@ -28,9 +28,9 @@ route:
 summary:
 driver:
 navigator:
-accommodation:      # Days 4–6 only (multi-night stays)
-booking:            # Day 5 only (ferry booking)
-routeDecision:      # Day 6 only (route alternatives)
+accommodation: # Days 4–6 only (multi-night stays)
+booking: # Day 5 only (ferry booking)
+routeDecision: # Day 6 only (route alternatives)
 stops:
 arrival:
 passingHighlights:
@@ -38,7 +38,7 @@ decisionPoints:
 roadbookRules:
 routeAudit:
 editorialNotes:
-tripSummary:        # Day 7 only
+tripSummary: # Day 7 only
 todos:
 ```
 
@@ -48,10 +48,10 @@ todos:
 
 ```yaml
 metadata:
-  title: "Day N"
+  title: 'Day N'
   subtitle: string
   theme: string
-  date: "YYYY-MM-DD"
+  date: 'YYYY-MM-DD'
 ```
 
 ---
@@ -62,10 +62,10 @@ metadata:
 route:
   start:
     name: string
-    city: string          # or country/address/village as appropriate
+    city: string # or country/address/village as appropriate
   destination:
     name: string
-    city: string          # or address/village as appropriate
+    city: string # or address/village as appropriate
 ```
 
 ---
@@ -89,7 +89,7 @@ summary:
 ```yaml
 driver:
   dayType: string
-  roadType:                             # Day 1 only (preserved, day-specific)
+  roadType: # Day 1 only (preserved, day-specific)
     - string
   chargingStrategy:
     philosophy: string
@@ -98,10 +98,10 @@ driver:
       - string
     decisionRule: string
     # Day-specific fields preserved:
-    breakfastCharge: boolean             # Day 1 only
-    overnightCharge: boolean             # Day 1, 3 only
-    dcChargingRequired: boolean          # Day 3 only
-  targetArrivalSOC: number              # Day 1, 2 only
+    breakfastCharge: boolean # Day 1 only
+    overnightCharge: boolean # Day 1, 3 only
+    dcChargingRequired: boolean # Day 3 only
+  targetArrivalSOC: number # Day 1, 2 only
   notes:
     - string
 ```
@@ -280,13 +280,13 @@ arrival:
 decisionPoints:
   - id: string
     trigger: string
-    ifGood: string                      # Weather-based decisions
+    ifGood: string # Weather-based decisions
     ifRain: string
-    ifAhead: string                     # Time-based decisions
+    ifAhead: string # Time-based decisions
     ifBehind: string
-    ifRelaxed: string                   # Energy-based decisions
+    ifRelaxed: string # Energy-based decisions
     ifTired: string
-    ifBatteryAbove50: string            # Battery-based decisions
+    ifBatteryAbove50: string # Battery-based decisions
     ifBatteryAbove60: string
     otherwise: string
     ifNeeded: string
@@ -307,17 +307,17 @@ passingHighlights:
 
 ```yaml
 roadbookRules:
-  targetArrival: string                 # Day 1 only
+  targetArrival: string # Day 1 only
   maximumRecommendedDetourMinutes: number
   homemadeFoodPriority: boolean
   avoidBacktracking: boolean
   parkingFirstNavigation: boolean
   weatherAdaptive: boolean
-  noRush: boolean                       # Day 3 only
+  noRush: boolean # Day 3 only
   avoidUnnecessaryDriving: boolean
-  regroupAfterLunch: boolean            # Day 6 only
-  regroupAtKarlstad: boolean            # Day 7 only
-  avoidUnnecessaryStops: boolean        # Day 7 only
+  regroupAfterLunch: boolean # Day 6 only
+  regroupAtKarlstad: boolean # Day 7 only
+  avoidUnnecessaryStops: boolean # Day 7 only
 ```
 
 ---
@@ -330,12 +330,12 @@ routeAudit:
   unnecessaryDetours: boolean
   chargingIntegrated: boolean
   weatherBackup: boolean
-  arrivalBefore1700: boolean            # varies per day
-  drivingDistance: string               # Day 3 only
+  arrivalBefore1700: boolean # varies per day
+  drivingDistance: string # Day 3 only
   stressLevel: string
-  repeatedRoad: string                  # Day 2 only
+  repeatedRoad: string # Day 2 only
   lunchIntegrated: boolean
-  driving: string                       # Day 6 star ratings
+  driving: string # Day 6 star ratings
   scenery: string
   culturalValue: string
   familyFriendly: string
@@ -357,12 +357,12 @@ editorialNotes:
 
 ## Day-Specific Sections
 
-| Section | Days Present | Purpose |
-|---------|-------------|---------|
-| `accommodation` | 4, 5, 6 | Multi-night stay details with booking info |
-| `booking` | 5 | Ferry booking confirmation |
-| `routeDecision` | 6 | Route A/B alternative selection |
-| `tripSummary` | 7 | Trip completion message |
+| Section         | Days Present | Purpose                                    |
+| --------------- | ------------ | ------------------------------------------ |
+| `accommodation` | 4, 5, 6      | Multi-night stay details with booking info |
+| `booking`       | 5            | Ferry booking confirmation                 |
+| `routeDecision` | 6            | Route A/B alternative selection            |
+| `tripSummary`   | 7            | Trip completion message                    |
 
 These sections are NOT required on every day. They appear only where contextually meaningful.
 
@@ -370,44 +370,44 @@ These sections are NOT required on every day. They appear only where contextuall
 
 ## Stop Types
 
-| Type | Usage |
-|------|-------|
-| `departure` | First stop of every day |
-| `charging` | EV charging stop |
-| `picnic` | Homemade food stop |
-| `viewpoint` | Scenic viewpoint |
-| `village` | Village exploration |
-| `fjord` | Fjord stop |
-| `attraction` | Significant attraction |
-| `meal` | Lunch decision point |
-| `ferryTerminal` | Ferry boarding |
-| `experience` | Signature experience (ferry crossing) |
-| `scenic` | Scenic flexible stop |
-| `flexible` | Optional activity block |
-| `regroup` | Vehicle regroup point |
-| `scenicDrive` | Scenic driving section |
-| `drive` | Driving section |
-| `accommodation` | Overnight destination |
-| `destination` | Final destination (Day 7 only) |
-| `optional` | Optional coffee/stretch |
+| Type            | Usage                                 |
+| --------------- | ------------------------------------- |
+| `departure`     | First stop of every day               |
+| `charging`      | EV charging stop                      |
+| `picnic`        | Homemade food stop                    |
+| `viewpoint`     | Scenic viewpoint                      |
+| `village`       | Village exploration                   |
+| `fjord`         | Fjord stop                            |
+| `attraction`    | Significant attraction                |
+| `meal`          | Lunch decision point                  |
+| `ferryTerminal` | Ferry boarding                        |
+| `experience`    | Signature experience (ferry crossing) |
+| `scenic`        | Scenic flexible stop                  |
+| `flexible`      | Optional activity block               |
+| `regroup`       | Vehicle regroup point                 |
+| `scenicDrive`   | Scenic driving section                |
+| `drive`         | Driving section                       |
+| `accommodation` | Overnight destination                 |
+| `destination`   | Final destination (Day 7 only)        |
+| `optional`      | Optional coffee/stretch               |
 
 ---
 
 ## Experience Priority Levels
 
-| Priority | Meaning |
-|----------|---------|
-| `Signature` | Experience of the Day — must not be missed |
-| `Major` | Significant experience — strongly recommended |
-| `Optional` | Nice to have — skip if time/energy limited |
+| Priority    | Meaning                                       |
+| ----------- | --------------------------------------------- |
+| `Signature` | Experience of the Day — must not be missed    |
+| `Major`     | Significant experience — strongly recommended |
+| `Optional`  | Nice to have — skip if time/energy limited    |
 
 ---
 
 ## Parking Confidence Levels
 
-| Level | Meaning |
-|-------|---------|
-| `VERIFIED` | GPS confirmed, parking exists |
+| Level         | Meaning                                     |
+| ------------- | ------------------------------------------- |
+| `VERIFIED`    | GPS confirmed, parking exists               |
 | `RECOMMENDED` | Likely correct, awaiting field verification |
 
 ---
@@ -418,8 +418,8 @@ All weather objects use exactly:
 
 ```yaml
 weather:
-  good: string    # Activity in good weather
-  rain: string    # Activity in rain
+  good: string # Activity in good weather
+  rain: string # Activity in rain
 ```
 
 No variations (sunny, cloudy, poor weather, etc.).
@@ -428,13 +428,13 @@ No variations (sunny, cloudy, poor weather, etc.).
 
 ## Naming Conventions
 
-| Concept | Schema Key | UI Display |
-|---------|-----------|------------|
-| Meeting/regroup point | `regroupPoint` | "Regroup Point" |
-| Weather good | `good` | Context-dependent |
-| Weather bad | `rain` | Context-dependent |
+| Concept               | Schema Key                       | UI Display              |
+| --------------------- | -------------------------------- | ----------------------- |
+| Meeting/regroup point | `regroupPoint`                   | "Regroup Point"         |
+| Weather good          | `good`                           | Context-dependent       |
+| Weather bad           | `rain`                           | Context-dependent       |
 | Experience of the Day | `experience.priority: Signature` | "Experience of the Day" |
-| Lunch decision | `preferred` / `alternative` | "Lunch Decision" |
+| Lunch decision        | `preferred` / `alternative`      | "Lunch Decision"        |
 
 ---
 

@@ -1,271 +1,270 @@
-version: "1.0"
+version: '1.0'
 status: LOCKED
 dayId: day-2
 
 metadata:
-  title: "Day 2"
-  subtitle: "The Day Norway Becomes Norway"
-  theme: "Mountains → Fjords → Valley"
-  date: "2026-07-27"
+  title: 'Day 2'
+  subtitle: 'The Day Norway Becomes Norway'
+  theme: 'Mountains → Fjords → Valley'
+  date: '2026-07-27'
 
 route:
   start:
-    name: "Havsdalsgrenda Geilo Apartments"
-    city: "Geilo"
+    name: 'Havsdalsgrenda Geilo Apartments'
+    city: 'Geilo'
   destination:
-    name: "Flatlandsmo Camping"
-    city: "Voss"
+    name: 'Flatlandsmo Camping'
+    city: 'Voss'
 
 summary:
-  departureTime: "08:00"
-  targetArrival: "17:00-17:30"
-  estimatedDrivingTime: "5h 15m"
-  plannedStopTime: "2h 00m"
-  totalTravelTime: "7h 30m"
+  departureTime: '08:00'
+  targetArrival: '17:00-17:30'
+  estimatedDrivingTime: '5h 15m'
+  plannedStopTime: '2h 00m'
+  totalTravelTime: '7h 30m'
 
 driver:
-  dayType: "Scenic Drive"
+  dayType: 'Scenic Drive'
   chargingStrategy:
-    philosophy: "Charge only if naturally integrated into the itinerary."
-    preferredLocation: "Flåm (if needed)"
+    philosophy: 'Charge only if naturally integrated into the itinerary.'
+    preferredLocation: 'Flåm (if needed)'
     backupLocations:
-      - "Aurland"
-      - "Voss"
-    decisionRule: "If battery >60% at Flåm, continue. Otherwise charge."
+      - 'Aurland'
+      - 'Voss'
+    decisionRule: 'If battery >60% at Flåm, continue. Otherwise charge.'
   targetArrivalSOC: 25
   notes:
-    - "Expect narrow mountain roads approaching Aurland."
-    - "Stegastein access road is steep and narrow."
-    - "Drive patiently through tourist traffic."
+    - 'Expect narrow mountain roads approaching Aurland.'
+    - 'Stegastein access road is steep and narrow.'
+    - 'Drive patiently through tourist traffic.'
 
 navigator:
-  regroupPoint: "Flåm"
-  weatherReminder: "Mountain weather may differ from valley. Check before Stegastein."
-  chargingReminder: "No DC charging planned unless SOC drops below 40% at Flåm."
+  regroupPoint: 'Flåm'
+  weatherReminder: 'Mountain weather may differ from valley. Check before Stegastein.'
+  chargingReminder: 'No DC charging planned unless SOC drops below 40% at Flåm.'
   notes:
-    - "Stegastein is the signature photo of the day."
-    - "Flåm can be very busy in peak season — patience required."
+    - 'Stegastein is the signature photo of the day.'
+    - 'Flåm can be very busy in peak season — patience required.'
 
 ###############################################################
 
 stops:
-
-###############################################################
+  ###############################################################
 
   - id: departure
     sequence: 1
     type: departure
     fixed: true
-    title: "Havsdalsgrenda Apartments"
+    title: 'Havsdalsgrenda Apartments'
     schedule:
-      arrival: "08:00"
-      departure: "08:00"
+      arrival: '08:00'
+      departure: '08:00'
       stayMinutes: 0
     purpose:
       - "Begin Norway's Scenic Day"
     beforeLeaving:
-      - "Breakfast completed"
-      - "Both EVs charged"
-      - "Lunch packed"
-      - "Weather checked"
-      - "Navigation loaded"
+      - 'Breakfast completed'
+      - 'Both EVs charged'
+      - 'Lunch packed'
+      - 'Weather checked'
+      - 'Navigation loaded'
 
-###############################################################
+  ###############################################################
 
   - id: stegastein
     sequence: 2
     type: viewpoint
     fixed: true
-    title: "Stegastein Viewpoint"
+    title: 'Stegastein Viewpoint'
     experience:
       priority: Signature
-      estimatedMemory: "5/5"
+      estimatedMemory: '5/5'
       whyStopHere: "One of Norway's most spectacular fjord viewpoints."
     schedule:
-      arrival: "09:30"
-      departure: "09:55"
+      arrival: '09:30'
+      departure: '09:55'
       stayMinutes: 25
     purpose:
-      - "Iconic Fjord View"
-      - "Family Photos"
-      - "Stretch"
+      - 'Iconic Fjord View'
+      - 'Family Photos'
+      - 'Stretch'
     navigation:
       destination:
-        name: "Stegastein Viewpoint"
+        name: 'Stegastein Viewpoint'
       parking:
-        name: "Stegastein Viewpoint Parking"
+        name: 'Stegastein Viewpoint Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: "Use official Stegastein parking."
+        notes: 'Use official Stegastein parking.'
     family:
       toilets: false
       stroller: true
       walkingDistanceMeters: 100
     photography:
-      priority: "Highest"
+      priority: 'Highest'
       recommendation: "Today's signature family photo."
     weather:
-      good: "Enjoy the panoramic viewpoint."
-      rain: "Brief visit only."
+      good: 'Enjoy the panoramic viewpoint.'
+      rain: 'Brief visit only.'
     story: "One of Norway's most spectacular fjord viewpoints."
 
-###############################################################
+  ###############################################################
 
   - id: flam
     sequence: 3
     type: village
     fixed: true
-    title: "Flåm"
+    title: 'Flåm'
     schedule:
-      arrival: "10:25"
-      departure: "12:15"
+      arrival: '10:25'
+      departure: '12:15'
       stayMinutes: 110
     purpose:
-      - "Explore Village"
-      - "Lunch"
-      - "Restrooms"
-      - "Fjord"
-      - "Grocery"
+      - 'Explore Village'
+      - 'Lunch'
+      - 'Restrooms'
+      - 'Fjord'
+      - 'Grocery'
     navigation:
       destination:
-        name: "Flåm Visitor Parking"
+        name: 'Flåm Visitor Parking'
       parking:
-        name: "Flåm Visitor Parking"
+        name: 'Flåm Visitor Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: "Use official visitor parking."
+        notes: 'Use official visitor parking.'
     food:
       strategy:
-        good: "Homemade picnic."
-        rain: "Indoor lunch."
+        good: 'Homemade picnic.'
+        rain: 'Indoor lunch.'
     lunch:
       window:
-        start: "11:30"
-        end: "12:15"
+        start: '11:30'
+        end: '12:15'
     localDiscovery:
       enabled: true
       recommendation:
-        type: "Bakery"
-        notes: "Optional dessert or coffee after homemade lunch."
+        type: 'Bakery'
+        notes: 'Optional dessert or coffee after homemade lunch.'
     charging:
       recommended: false
-      notes: "Charge only if SOC is lower than expected."
+      notes: 'Charge only if SOC is lower than expected.'
     weather:
-      good: "Picnic by the fjord."
-      rain: "Indoor café."
+      good: 'Picnic by the fjord.'
+      rain: 'Indoor café.'
 
-###############################################################
+  ###############################################################
 
   - id: gudvangen
     sequence: 4
     type: fjord
     fixed: true
-    title: "Gudvangen"
+    title: 'Gudvangen'
     schedule:
-      arrival: "12:45"
-      departure: "13:00"
+      arrival: '12:45'
+      departure: '13:00'
       stayMinutes: 15
     purpose:
-      - "Short Fjord Stop"
-      - "Restrooms"
-      - "Stretch"
+      - 'Short Fjord Stop'
+      - 'Restrooms'
+      - 'Stretch'
     navigation:
       destination:
-        name: "Gudvangen Visitor Parking"
+        name: 'Gudvangen Visitor Parking'
       parking:
-        name: "Gudvangen Visitor Parking"
+        name: 'Gudvangen Visitor Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: ""
-    recommendation: "Short stop only."
+        notes: ''
+    recommendation: 'Short stop only.'
 
-###############################################################
+  ###############################################################
 
   - id: scenicFlex
     sequence: 5
     type: scenic
     fixed: false
     optional: true
-    title: "Stalheim OR Tvindefossen"
+    title: 'Stalheim OR Tvindefossen'
     schedule:
-      arrival: "14:00"
-      departure: "14:20"
+      arrival: '14:00'
+      departure: '14:20'
       stayMinutes: 20
     visitOnlyIf:
-      - "Good weather"
-      - "Ahead of schedule"
-      - "Everyone interested"
+      - 'Good weather'
+      - 'Ahead of schedule'
+      - 'Everyone interested'
     decision:
       preferred:
-        name: "Stalheim"
+        name: 'Stalheim'
       alternative:
-        name: "Tvindefossen"
+        name: 'Tvindefossen'
     weather:
-      good: "Visit preferred scenic stop."
-      rain: "Skip"
+      good: 'Visit preferred scenic stop.'
+      rain: 'Skip'
 
-###############################################################
+  ###############################################################
 
   - id: voss
     sequence: 6
     type: accommodation
     fixed: true
-    title: "Flatlandsmo Camping"
+    title: 'Flatlandsmo Camping'
     schedule:
-      arrival: "17:15"
+      arrival: '17:15'
       departure: null
       stayMinutes: null
     purpose:
-      - "Check-in"
-      - "Relax"
-      - "Dinner"
-      - "Prepare for Day 3"
+      - 'Check-in'
+      - 'Relax'
+      - 'Dinner'
+      - 'Prepare for Day 3'
     navigation:
       destination:
-        name: "Flatlandsmo Camping"
+        name: 'Flatlandsmo Camping'
       parking:
-        name: "Flatlandsmo Camping"
+        name: 'Flatlandsmo Camping'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: ""
+        notes: ''
 
 ###############################################################
 
 arrival:
-  accommodation: "Flatlandsmo Camping"
-  parking: "At accommodation"
+  accommodation: 'Flatlandsmo Camping'
+  parking: 'At accommodation'
   eveningPlan:
-    - "Check-in"
-    - "Relax"
-    - "Dinner"
-    - "Prepare for Day 3"
-  tomorrowPreparation: "Relaxed start — exploration day tomorrow"
+    - 'Check-in'
+    - 'Relax'
+    - 'Dinner'
+    - 'Prepare for Day 3'
+  tomorrowPreparation: 'Relaxed start — exploration day tomorrow'
 
 ###############################################################
 
 passingHighlights:
-  - "Aurlandsfjord"
-  - "Flåm Railway"
-  - "Nærøydalen"
-  - "Mountain waterfalls"
+  - 'Aurlandsfjord'
+  - 'Flåm Railway'
+  - 'Nærøydalen'
+  - 'Mountain waterfalls'
 
 decisionPoints:
   - id: lunchDecision
-    trigger: "Weather at Flåm"
-    ifGood: "Picnic"
-    ifRain: "Indoor lunch"
+    trigger: 'Weather at Flåm'
+    ifGood: 'Picnic'
+    ifRain: 'Indoor lunch'
   - id: flexStop
-    trigger: "Time and energy"
-    ifAhead: "Visit Stalheim"
-    ifBehind: "Drive directly to Voss"
+    trigger: 'Time and energy'
+    ifAhead: 'Visit Stalheim'
+    ifBehind: 'Drive directly to Voss'
 
 roadbookRules:
   maximumRecommendedDetourMinutes: 5
@@ -277,7 +276,7 @@ roadbookRules:
 ###############################################################
 
 routeAudit:
-  repeatedRoad: "Only unavoidable Stegastein access road"
+  repeatedRoad: 'Only unavoidable Stegastein access road'
   unnecessaryDetours: false
   lunchIntegrated: true
   chargingIntegrated: true
@@ -287,18 +286,18 @@ routeAudit:
 ###############################################################
 
 editorialNotes:
-  pageMood: "Dramatic"
-  heroImage: "Stegastein Viewpoint overlooking Aurlandsfjord"
+  pageMood: 'Dramatic'
+  heroImage: 'Stegastein Viewpoint overlooking Aurlandsfjord'
   designGuidance:
-    - "Bold hero image for Stegastein."
-    - "Highlight Experience of the Day."
-    - "Lunch as a decision card."
-    - "Keep Gudvangen minimal."
-    - "Scenic flex as optional card."
+    - 'Bold hero image for Stegastein.'
+    - 'Highlight Experience of the Day.'
+    - 'Lunch as a decision card.'
+    - 'Keep Gudvangen minimal.'
+    - 'Scenic flex as optional card.'
 
 ###############################################################
 
 todos:
-  - "Field verify preferred picnic location in Flåm."
-  - "Field verify preferred dessert/coffee recommendation."
-  - "Field verify preferred scenic stop between Stalheim and Tvindefossen."
+  - 'Field verify preferred picnic location in Flåm.'
+  - 'Field verify preferred dessert/coffee recommendation.'
+  - 'Field verify preferred scenic stop between Stalheim and Tvindefossen.'

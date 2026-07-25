@@ -11,7 +11,7 @@ interface RouteDecisionCardProps {
  */
 export function RouteDecisionCard({ routeDecision }: RouteDecisionCardProps) {
   const [selectedId, setSelectedId] = useState<string>(
-    routeDecision.options.find((o) => o.selected)?.id || routeDecision.options[0]?.id || ''
+    routeDecision.options.find((o) => o.selected)?.id || routeDecision.options[0]?.id || '',
   )
 
   if (!routeDecision.enabled) return null
@@ -48,9 +48,7 @@ export function RouteDecisionCard({ routeDecision }: RouteDecisionCardProps) {
           {selectedOption.experienceOfTheDay && (
             <div className="rb-route-decision__highlight">
               <span className="rb-route-decision__label">Experience of the Day</span>
-              <span className="rb-route-decision__value">
-                {selectedOption.experienceOfTheDay}
-              </span>
+              <span className="rb-route-decision__value">{selectedOption.experienceOfTheDay}</span>
             </div>
           )}
 

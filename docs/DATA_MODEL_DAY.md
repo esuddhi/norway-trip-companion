@@ -1,4 +1,5 @@
 # Norway Road Trip Companion
+
 # DATA_MODEL_DAY.md
 
 Version: 1.0

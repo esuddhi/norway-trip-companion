@@ -8,13 +8,13 @@ https://esuddhi.github.io/norway-trip-companion/
 
 ## Architecture
 
-| Component | Technology |
-|-----------|-----------|
-| Build tool | Vite 7 |
-| Hosting | GitHub Pages |
-| CI/CD | GitHub Actions |
+| Component         | Technology                         |
+| ----------------- | ---------------------------------- |
+| Build tool        | Vite 7                             |
+| Hosting           | GitHub Pages                       |
+| CI/CD             | GitHub Actions                     |
 | Deployment method | Official `actions/deploy-pages@v4` |
-| Branch | `develop` (auto-deploys on push) |
+| Branch            | `develop` (auto-deploys on push)   |
 
 ---
 
@@ -66,12 +66,12 @@ The workflow will run automatically and deploy the site.
 
 The app is hosted at a subpath (`/norway-trip-companion/`). This is handled automatically:
 
-| File | Configuration |
-|------|--------------|
+| File             | Configuration                                                        |
+| ---------------- | -------------------------------------------------------------------- |
 | `vite.config.ts` | `base: process.env.GITHUB_ACTIONS ? '/norway-trip-companion/' : '/'` |
-| `src/main.tsx` | `<BrowserRouter basename={import.meta.env.BASE_URL}>` |
-| PWA manifest | `start_url` and `scope` set to `base` |
-| Service worker | `navigateFallback: 'index.html'` |
+| `src/main.tsx`   | `<BrowserRouter basename={import.meta.env.BASE_URL}>`                |
+| PWA manifest     | `start_url` and `scope` set to `base`                                |
+| Service worker   | `navigateFallback: 'index.html'`                                     |
 
 In local development, the base is `/` (no subpath). In CI, it's `/norway-trip-companion/`.
 
@@ -84,6 +84,7 @@ Solution: The workflow copies `index.html` to `404.html`. GitHub serves `404.htm
 ### PWA / Service Worker
 
 The PWA configuration ensures:
+
 - `start_url` points to the correct base path
 - `scope` limits the service worker to the app's path
 - `navigateFallback` returns `index.html` for unmatched routes (offline SPA support)
@@ -126,6 +127,7 @@ npx serve dist
 ### Workflow fails at "npm run lint"
 
 Fix lint errors locally:
+
 ```bash
 npm run lint
 ```
@@ -133,6 +135,7 @@ npm run lint
 ### Workflow fails at "npm run format"
 
 Fix formatting:
+
 ```bash
 npx prettier --write .
 ```
@@ -140,6 +143,7 @@ npx prettier --write .
 ### Workflow fails at "npm run build"
 
 Check for TypeScript errors:
+
 ```bash
 npx tsc -b
 ```
@@ -153,6 +157,7 @@ npx tsc -b
 ### Routes show GitHub's 404 page
 
 The `404.html` fallback is missing. Verify the workflow includes:
+
 ```yaml
 - name: Copy 404.html for SPA routing
   run: cp dist/index.html dist/404.html
@@ -161,6 +166,7 @@ The `404.html` fallback is missing. Verify the workflow includes:
 ### Assets fail to load (CSS, JS, images)
 
 The base path is wrong. Verify:
+
 - `vite.config.ts` uses `'/norway-trip-companion/'` (matching the repo name exactly)
 - No hardcoded absolute paths (`/src/...`) in HTML or CSS
 
@@ -195,9 +201,9 @@ The site updates within 2-3 minutes.
 
 ## Environment Variables
 
-| Variable | Set By | Purpose |
-|----------|--------|---------|
-| `GITHUB_ACTIONS` | GitHub | Automatically set in CI; triggers production base path |
-| `BASE_URL` | Vite | Injected at build time from `base` config; available as `import.meta.env.BASE_URL` |
+| Variable         | Set By | Purpose                                                                            |
+| ---------------- | ------ | ---------------------------------------------------------------------------------- |
+| `GITHUB_ACTIONS` | GitHub | Automatically set in CI; triggers production base path                             |
+| `BASE_URL`       | Vite   | Injected at build time from `base` config; available as `import.meta.env.BASE_URL` |
 
 No secrets or API keys are required for deployment.

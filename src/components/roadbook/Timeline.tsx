@@ -15,10 +15,7 @@ export function Timeline({ day }: TimelineProps) {
       </h2>
       <div className="rb-timeline__track">
         {events.map((event, index) => (
-          <div
-            key={event.id}
-            className={`rb-timeline__event rb-timeline__event--${event.type}`}
-          >
+          <div key={event.id} className={`rb-timeline__event rb-timeline__event--${event.type}`}>
             <div className="rb-timeline__connector-area">
               <span className="rb-timeline__icon" aria-hidden="true">
                 {event.icon}

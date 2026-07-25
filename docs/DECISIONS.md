@@ -95,6 +95,7 @@ The app must work offline in Norwegian fjords and tunnels where cellular coverag
 ### Decision
 
 Use `vite-plugin-pwa` to generate a service worker that:
+
 - Precaches the app shell (HTML, CSS, JS, JSON, SVG)
 - Runtime-caches OpenStreetMap tiles with CacheFirst strategy
 

@@ -2,7 +2,14 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Fuse from 'fuse.js'
 import { QRCodeSVG } from 'qrcode.react'
-import { BoltIcon, CloudIcon, MapPinIcon, PhoneIcon, PlusIcon, PrinterIcon } from '@heroicons/react/24/outline'
+import {
+  BoltIcon,
+  CloudIcon,
+  MapPinIcon,
+  PhoneIcon,
+  PlusIcon,
+  PrinterIcon,
+} from '@heroicons/react/24/outline'
 import { tripData as data } from './data/trip'
 import { TripSchema } from './data/schema'
 import { dateLabel, daysUntil, hotelFor, totalDistance, navUrl } from './lib/trip'
@@ -11,16 +18,576 @@ import { MapView } from './components/MapView'
 import { useAppStore } from './store/useAppStore'
 
 const today = data.days[0]
-function SectionHead({ label, title, action }: { label: string; title: string; action?: ReactNode }) { return <div className="section-head"><div><span className="eyebrow">{label}</span><h2>{title}</h2></div>{action}</div> }
-export function Dashboard() { const hotel = hotelFor(data, today.hotelId)!; return <><section className="hero"><span className="eyebrow">26 JUL — 01 AUG 2026 · NORWAY</span><h1>Make the detour.<br /><em>It's the point.</em></h1><p>Your calm, capable co-pilot for six days of fjords, mountains and small moments.</p><div className="hero-stats"><div><b>{daysUntil(data.trip.startDate)}</b><span>days to go</span></div><div><b>{totalDistance(data)} km</b><span>scenic distance</span></div><div><b>3</b><span>stays booked</span></div></div></section><section className="quick-grid"><Link to={`/planner/${today.id}`}><CalendarIcon />Today’s plan <b>→</b></Link><Link to="/map"><MapPinIcon />Route map <b>→</b></Link><Link to="/packing"><PlusIcon />Packing list <b>→</b></Link></section><section className="feature-grid"><article className="today-card"><SectionHead label="DAY 01 · SUNDAY" title={today.title} action={<Link to={`/planner/${today.id}`}>Open plan →</Link>} /><div className="route-line"><span>{today.events[0]?.time}</span><div><b>Gothenburg</b><i /> <b>Geilo</b></div><strong>{today.distanceKm} km</strong></div><div className="today-highlights"><div className="today-stat"><span className="eyebrow">DEPARTURE</span><b>{today.events[0]?.time}</b></div><div className="today-stat"><span className="eyebrow">DISTANCE</span><b>{today.distanceKm} km</b></div><div className="today-stat"><span className="eyebrow">DRIVING</span><b>{today.events[0]?.duration}</b></div></div><p>{today.summary}</p><div className="chips">{today.highlights.map((h) => <span key={h}>{h}</span>)}</div></article><aside className="weather-card"><CloudIcon /><span className="eyebrow">MOUNTAIN FORECAST</span><h3>17° <small>Partly cloudy</small></h3><p>Low wind · 10% rain</p><hr /><b>Drive easy</b><p>Dry roads, cool at altitude.</p></aside></section><section><SectionHead label="REST WELL" title="Tonight’s stay" action={<Link to="/accommodation">All stays →</Link>} /><article className="stay-card"><div className="stay-art">GEILO<br />MOUNTAIN<br />LODGE</div><div><span className="eyebrow">{hotel.location}</span><h3>{hotel.name}</h3><p>Check-in from {hotel.checkIn} · {hotel.parking}</p><p><BoltIcon /> {hotel.charging}</p><Link className="text-link" to="/accommodation">Stay details →</Link></div></article></section><section><SectionHead label="AHEAD" title="The road, day by day" /><div className="day-list">{data.days.map((day, index) => <DayCard key={day.id} day={day} index={index} />)}</div></section></> }
-function CalendarIcon() { return <span className="calendar-mark">□</span> }
-export function Timeline() { return <><SectionHead label="ITINERARY" title="A good kind of busy" action={<button onClick={() => print()}><PrinterIcon /> Print</button>} /><div className="timeline">{data.days.map((day, index) => <div className="timeline-day" key={day.id}><div className="timeline-date"><b>0{index + 1}</b><span>{dateLabel(day.date)}</span></div><DayCard day={day} index={index} /></div>)}</div></> }
-export function Planner() { const { dayId } = useParams(); const dayIndex = data.days.findIndex((d) => d.id === dayId); const day = data.days[dayIndex >= 0 ? dayIndex : 0]; const hotel = hotelFor(data, day.hotelId)!; const prevDay = dayIndex > 0 ? data.days[dayIndex - 1] : null; const nextDay = dayIndex < data.days.length - 1 ? data.days[dayIndex + 1] : null; return <><Link className="back" to="/timeline">← Full itinerary</Link><section className="planner-hero"><span className="eyebrow">DAY {String((dayIndex >= 0 ? dayIndex : 0) + 1).padStart(2, '0')} · {dateLabel(day.date)} · {day.distanceKm} KM</span><h1>{day.title}</h1><p>{day.summary}</p><div className="chips">{day.highlights.map((h) => <span key={h}>{h}</span>)}</div></section><div className="planner-layout"><section className="event-list">{day.events.map((event) => <article className={`event event--${event.kind}`} key={`${event.time}-${event.title}`}><time>{event.time}</time><div><span className={`event-dot ${event.kind}`} /><h3>{event.title}</h3>{event.road && <span className="event-road">{event.road}</span>}{event.notes && <p>{event.notes}</p>}{event.charger && <div className="event-charger"><BoltIcon /><span>{event.charger} · {event.power} · {event.connector}</span></div>}{event.tip && <p className="event-tip">💡 {event.tip}</p>}<div className="event-meta">{event.duration && <span>{event.duration}</span>}{event.distance && <span>{event.distance}</span>}{event.lat && event.lng && <a href={navUrl(event.lat, event.lng)} target="_blank" rel="noreferrer" className="event-nav">Navigate ↗</a>}</div></div></article>)}</section><aside className="planner-sidebar"><div className="sidebar-section"><span className="eyebrow">TONIGHT</span><h3>{hotel.name}</h3><p>{hotel.address}</p><p>Check-in from {hotel.checkIn}</p>{hotel.charging && <p className="sidebar-charge"><BoltIcon /> {hotel.charging}</p>}<a href={navUrl(hotel.lat, hotel.lng)} target="_blank" rel="noreferrer" className="text-link">Navigate to hotel ↗</a></div><hr /><div className="sidebar-section"><span className="eyebrow">WEATHER</span><h3>{day.weather}</h3><p>Keep a waterproof layer handy.</p></div><hr /><div className="sidebar-section"><span className="eyebrow">DISTANCE</span><h3>{day.distanceKm} km</h3><p>Total driving today</p></div></aside></div><nav className="day-nav">{prevDay && <Link to={`/planner/${prevDay.id}`} className="day-nav-link">← {prevDay.title}</Link>}{nextDay && <Link to={`/planner/${nextDay.id}`} className="day-nav-link day-nav-next">{nextDay.title} →</Link>}</nav></> }
-export function MapPage() { return <><SectionHead label="NAVIGATION" title="The scenic route" /><p className="lede">Saved places and your overnight stops. Map tiles cache for the journey after first view.</p><MapView data={data} /><div className="place-grid">{data.places.map((place) => <article key={place.id}><span className="eyebrow">{place.type}</span><h3>{place.name}</h3><p>{place.description}</p><a href={`https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`} target="_blank" rel="noreferrer">Open navigation →</a></article>)}</div></> }
-export function Packing() { const { checked, toggle, resetChecklist } = useAppStore(); const items = data.packing.flatMap((g) => g.items); const done = items.filter((x) => checked[x]).length; return <><SectionHead label="PREPARE" title="Pack less. See more." action={<button onClick={resetChecklist}>Reset</button>} /><div className="progress"><span style={{ width: `${(done / items.length) * 100}%` }} /><b>{done} / {items.length} packed</b></div><div className="packing-grid">{data.packing.map((group) => <section className="packing-group" key={group.category}><h3>{group.category}</h3>{group.items.map((item) => <label key={item}><input type="checkbox" checked={!!checked[item]} onChange={() => toggle(item)} /><span>{item}</span></label>)}</section>)}</div></> }
-export function Search() { const [query, setQuery] = useState(''); const corpus = useMemo(() => [...data.days.map((x) => ({ name: x.title, detail: x.summary, type: 'Day', to: `/planner/${x.id}` })), ...data.hotels.map((x) => ({ name: x.name, detail: x.address, type: 'Stay', to: '/accommodation' })), ...data.places.map((x) => ({ name: x.name, detail: x.description, type: x.type, to: '/map' }))], []); const results = query ? new Fuse(corpus, { keys: ['name', 'detail'], threshold: .35 }).search(query).map((x) => x.item) : corpus; return <><SectionHead label="FIND ANYTHING" title="Where to?" /><input autoFocus className="search-input" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search hotels, stops, chargers…" aria-label="Search trip" /><div className="search-results">{results.map((r) => <Link key={r.name} to={r.to}><span>{r.type}</span><b>{r.name}</b><p>{r.detail}</p></Link>)}</div></> }
-export function Accommodation() { return <><SectionHead label="SLEEP" title="Your stays" /> <div className="accommodation-list">{data.hotels.map((h) => <article key={h.id}><div className="stay-art">{h.location.toUpperCase()}</div><div><span className="eyebrow">BOOKING · {h.bookingReference}</span><h2>{h.name}</h2><p>{h.address}</p><dl><dt>Check-in / out</dt><dd>{h.checkIn} / {h.checkOut}</dd><dt>Parking</dt><dd>{h.parking}</dd><dt>EV charging</dt><dd>{h.charging}</dd></dl></div><QRCodeSVG value={`https://www.google.com/maps/search/?api=1&query=${h.lat},${h.lng}`} size={72} /></article>)}</div></> }
-export function Emergency() { return <><SectionHead label="WHEN YOU NEED IT" title="Emergency contacts" /><div className="emergency-grid">{data.emergency.map((e) => <a href={`tel:${e.number.replace(/\s/g, '')}`} key={e.label}><PhoneIcon /><span>{e.label}</span><b>{e.number}</b></a>)}</div></> }
-export function Expenses() { const [items, setItems] = useState<{ label: string; amount: number }[]>([]); const [label, setLabel] = useState(''); const [amount, setAmount] = useState(''); const add = () => { if (label && Number(amount)) { setItems([...items, { label, amount: Number(amount) }]); setLabel(''); setAmount('') } }; return <><SectionHead label="BUDGET" title="Trip expenses" /><div className="expense-total"><span>Trip total</span><b>{items.reduce((s, i) => s + i.amount, 0).toLocaleString()} NOK</b></div><div className="expense-form"><input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="e.g. Ferry" /><input value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="NOK" type="number" /><button onClick={add}>Add expense</button></div>{items.map((i, n) => <div className="expense-item" key={`${i.label}-${n}`}><span>{i.label}</span><b>{i.amount} NOK</b></div>)}</> }
-export function Settings() { const { theme, setTheme } = useAppStore(); const download = () => { const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })); const a = document.createElement('a'); a.href = url; a.download = 'trip.json'; a.click(); URL.revokeObjectURL(url) }; return <><SectionHead label="PREFERENCES" title="Make it yours" /><section className="settings-card"><h3>Appearance</h3><p>Choose a colour mode that feels right for the road.</p><div className="theme-options">{(['system', 'light', 'dark'] as const).map((x) => <button key={x} className={theme === x ? 'selected' : ''} onClick={() => setTheme(x)}>{x}</button>)}</div></section><section className="settings-card"><h3>Trip data</h3><p>All content is validated JSON, ready to replace for your next adventure.</p><button onClick={download}>Download current data</button></section><Link className="settings-link" to="/emergency">Emergency contacts →</Link><Link className="settings-link" to="/expenses">Expenses →</Link><Link className="settings-link" to="/admin">Admin & data validation →</Link></> }
-export function Admin() { const [result, setResult] = useState('Import a trip JSON file to validate its structure locally.'); const onImport = (file?: File) => { if (!file) return; const reader = new FileReader(); reader.onload = () => { try { const parsed = TripSchema.safeParse(JSON.parse(String(reader.result))); setResult(parsed.success ? `Valid trip: ${parsed.data.trip.title} · ${parsed.data.days.length} day(s)` : `Invalid data: ${parsed.error.issues[0]?.message}`) } catch { setResult('Invalid JSON file.') } }; reader.readAsText(file) }; return <><SectionHead label="ADMIN" title="Trip data control" /><section className="settings-card"><h3>Validate an import</h3><p>Validation happens in your browser before any trip data is used.</p><input type="file" accept="application/json" onChange={(event) => onImport(event.target.files?.[0])} /><p className="validation-result">{result}</p></section><section className="settings-card"><h3>Data contract</h3><p>The schema checks trip metadata, days, stays, places, packing categories and emergency contacts.</p><Link to="/">Preview active trip →</Link></section></> }
+function SectionHead({
+  label,
+  title,
+  action,
+}: {
+  label: string
+  title: string
+  action?: ReactNode
+}) {
+  return (
+    <div className="section-head">
+      <div>
+        <span className="eyebrow">{label}</span>
+        <h2>{title}</h2>
+      </div>
+      {action}
+    </div>
+  )
+}
+export function Dashboard() {
+  const hotel = hotelFor(data, today.hotelId)!
+  return (
+    <>
+      <section className="hero">
+        <span className="eyebrow">26 JUL — 01 AUG 2026 · NORWAY</span>
+        <h1>
+          Make the detour.
+          <br />
+          <em>It's the point.</em>
+        </h1>
+        <p>Your calm, capable co-pilot for six days of fjords, mountains and small moments.</p>
+        <div className="hero-stats">
+          <div>
+            <b>{daysUntil(data.trip.startDate)}</b>
+            <span>days to go</span>
+          </div>
+          <div>
+            <b>{totalDistance(data)} km</b>
+            <span>scenic distance</span>
+          </div>
+          <div>
+            <b>3</b>
+            <span>stays booked</span>
+          </div>
+        </div>
+      </section>
+      <section className="quick-grid">
+        <Link to={`/planner/${today.id}`}>
+          <CalendarIcon />
+          Today’s plan <b>→</b>
+        </Link>
+        <Link to="/map">
+          <MapPinIcon />
+          Route map <b>→</b>
+        </Link>
+        <Link to="/packing">
+          <PlusIcon />
+          Packing list <b>→</b>
+        </Link>
+      </section>
+      <section className="feature-grid">
+        <article className="today-card">
+          <SectionHead
+            label="DAY 01 · SUNDAY"
+            title={today.title}
+            action={<Link to={`/planner/${today.id}`}>Open plan →</Link>}
+          />
+          <div className="route-line">
+            <span>{today.events[0]?.time}</span>
+            <div>
+              <b>Gothenburg</b>
+              <i /> <b>Geilo</b>
+            </div>
+            <strong>{today.distanceKm} km</strong>
+          </div>
+          <div className="today-highlights">
+            <div className="today-stat">
+              <span className="eyebrow">DEPARTURE</span>
+              <b>{today.events[0]?.time}</b>
+            </div>
+            <div className="today-stat">
+              <span className="eyebrow">DISTANCE</span>
+              <b>{today.distanceKm} km</b>
+            </div>
+            <div className="today-stat">
+              <span className="eyebrow">DRIVING</span>
+              <b>{today.events[0]?.duration}</b>
+            </div>
+          </div>
+          <p>{today.summary}</p>
+          <div className="chips">
+            {today.highlights.map((h) => (
+              <span key={h}>{h}</span>
+            ))}
+          </div>
+        </article>
+        <aside className="weather-card">
+          <CloudIcon />
+          <span className="eyebrow">MOUNTAIN FORECAST</span>
+          <h3>
+            17° <small>Partly cloudy</small>
+          </h3>
+          <p>Low wind · 10% rain</p>
+          <hr />
+          <b>Drive easy</b>
+          <p>Dry roads, cool at altitude.</p>
+        </aside>
+      </section>
+      <section>
+        <SectionHead
+          label="REST WELL"
+          title="Tonight’s stay"
+          action={<Link to="/accommodation">All stays →</Link>}
+        />
+        <article className="stay-card">
+          <div className="stay-art">
+            GEILO
+            <br />
+            MOUNTAIN
+            <br />
+            LODGE
+          </div>
+          <div>
+            <span className="eyebrow">{hotel.location}</span>
+            <h3>{hotel.name}</h3>
+            <p>
+              Check-in from {hotel.checkIn} · {hotel.parking}
+            </p>
+            <p>
+              <BoltIcon /> {hotel.charging}
+            </p>
+            <Link className="text-link" to="/accommodation">
+              Stay details →
+            </Link>
+          </div>
+        </article>
+      </section>
+      <section>
+        <SectionHead label="AHEAD" title="The road, day by day" />
+        <div className="day-list">
+          {data.days.map((day, index) => (
+            <DayCard key={day.id} day={day} index={index} />
+          ))}
+        </div>
+      </section>
+    </>
+  )
+}
+function CalendarIcon() {
+  return <span className="calendar-mark">□</span>
+}
+export function Timeline() {
+  return (
+    <>
+      <SectionHead
+        label="ITINERARY"
+        title="A good kind of busy"
+        action={
+          <button onClick={() => print()}>
+            <PrinterIcon /> Print
+          </button>
+        }
+      />
+      <div className="timeline">
+        {data.days.map((day, index) => (
+          <div className="timeline-day" key={day.id}>
+            <div className="timeline-date">
+              <b>0{index + 1}</b>
+              <span>{dateLabel(day.date)}</span>
+            </div>
+            <DayCard day={day} index={index} />
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Planner() {
+  const { dayId } = useParams()
+  const dayIndex = data.days.findIndex((d) => d.id === dayId)
+  const day = data.days[dayIndex >= 0 ? dayIndex : 0]
+  const hotel = hotelFor(data, day.hotelId)!
+  const prevDay = dayIndex > 0 ? data.days[dayIndex - 1] : null
+  const nextDay = dayIndex < data.days.length - 1 ? data.days[dayIndex + 1] : null
+  return (
+    <>
+      <Link className="back" to="/timeline">
+        ← Full itinerary
+      </Link>
+      <section className="planner-hero">
+        <span className="eyebrow">
+          DAY {String((dayIndex >= 0 ? dayIndex : 0) + 1).padStart(2, '0')} · {dateLabel(day.date)}{' '}
+          · {day.distanceKm} KM
+        </span>
+        <h1>{day.title}</h1>
+        <p>{day.summary}</p>
+        <div className="chips">
+          {day.highlights.map((h) => (
+            <span key={h}>{h}</span>
+          ))}
+        </div>
+      </section>
+      <div className="planner-layout">
+        <section className="event-list">
+          {day.events.map((event) => (
+            <article className={`event event--${event.kind}`} key={`${event.time}-${event.title}`}>
+              <time>{event.time}</time>
+              <div>
+                <span className={`event-dot ${event.kind}`} />
+                <h3>{event.title}</h3>
+                {event.road && <span className="event-road">{event.road}</span>}
+                {event.notes && <p>{event.notes}</p>}
+                {event.charger && (
+                  <div className="event-charger">
+                    <BoltIcon />
+                    <span>
+                      {event.charger} · {event.power} · {event.connector}
+                    </span>
+                  </div>
+                )}
+                {event.tip && <p className="event-tip">💡 {event.tip}</p>}
+                <div className="event-meta">
+                  {event.duration && <span>{event.duration}</span>}
+                  {event.distance && <span>{event.distance}</span>}
+                  {event.lat && event.lng && (
+                    <a
+                      href={navUrl(event.lat, event.lng)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="event-nav"
+                    >
+                      Navigate ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+        <aside className="planner-sidebar">
+          <div className="sidebar-section">
+            <span className="eyebrow">TONIGHT</span>
+            <h3>{hotel.name}</h3>
+            <p>{hotel.address}</p>
+            <p>Check-in from {hotel.checkIn}</p>
+            {hotel.charging && (
+              <p className="sidebar-charge">
+                <BoltIcon /> {hotel.charging}
+              </p>
+            )}
+            <a
+              href={navUrl(hotel.lat, hotel.lng)}
+              target="_blank"
+              rel="noreferrer"
+              className="text-link"
+            >
+              Navigate to hotel ↗
+            </a>
+          </div>
+          <hr />
+          <div className="sidebar-section">
+            <span className="eyebrow">WEATHER</span>
+            <h3>{day.weather}</h3>
+            <p>Keep a waterproof layer handy.</p>
+          </div>
+          <hr />
+          <div className="sidebar-section">
+            <span className="eyebrow">DISTANCE</span>
+            <h3>{day.distanceKm} km</h3>
+            <p>Total driving today</p>
+          </div>
+        </aside>
+      </div>
+      <nav className="day-nav">
+        {prevDay && (
+          <Link to={`/planner/${prevDay.id}`} className="day-nav-link">
+            ← {prevDay.title}
+          </Link>
+        )}
+        {nextDay && (
+          <Link to={`/planner/${nextDay.id}`} className="day-nav-link day-nav-next">
+            {nextDay.title} →
+          </Link>
+        )}
+      </nav>
+    </>
+  )
+}
+export function MapPage() {
+  return (
+    <>
+      <SectionHead label="NAVIGATION" title="The scenic route" />
+      <p className="lede">
+        Saved places and your overnight stops. Map tiles cache for the journey after first view.
+      </p>
+      <MapView data={data} />
+      <div className="place-grid">
+        {data.places.map((place) => (
+          <article key={place.id}>
+            <span className="eyebrow">{place.type}</span>
+            <h3>{place.name}</h3>
+            <p>{place.description}</p>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open navigation →
+            </a>
+          </article>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Packing() {
+  const { checked, toggle, resetChecklist } = useAppStore()
+  const items = data.packing.flatMap((g) => g.items)
+  const done = items.filter((x) => checked[x]).length
+  return (
+    <>
+      <SectionHead
+        label="PREPARE"
+        title="Pack less. See more."
+        action={<button onClick={resetChecklist}>Reset</button>}
+      />
+      <div className="progress">
+        <span style={{ width: `${(done / items.length) * 100}%` }} />
+        <b>
+          {done} / {items.length} packed
+        </b>
+      </div>
+      <div className="packing-grid">
+        {data.packing.map((group) => (
+          <section className="packing-group" key={group.category}>
+            <h3>{group.category}</h3>
+            {group.items.map((item) => (
+              <label key={item}>
+                <input type="checkbox" checked={!!checked[item]} onChange={() => toggle(item)} />
+                <span>{item}</span>
+              </label>
+            ))}
+          </section>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Search() {
+  const [query, setQuery] = useState('')
+  const corpus = useMemo(
+    () => [
+      ...data.days.map((x) => ({
+        name: x.title,
+        detail: x.summary,
+        type: 'Day',
+        to: `/planner/${x.id}`,
+      })),
+      ...data.hotels.map((x) => ({
+        name: x.name,
+        detail: x.address,
+        type: 'Stay',
+        to: '/accommodation',
+      })),
+      ...data.places.map((x) => ({
+        name: x.name,
+        detail: x.description,
+        type: x.type,
+        to: '/map',
+      })),
+    ],
+    [],
+  )
+  const results = query
+    ? new Fuse(corpus, { keys: ['name', 'detail'], threshold: 0.35 })
+        .search(query)
+        .map((x) => x.item)
+    : corpus
+  return (
+    <>
+      <SectionHead label="FIND ANYTHING" title="Where to?" />
+      <input
+        autoFocus
+        className="search-input"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search hotels, stops, chargers…"
+        aria-label="Search trip"
+      />
+      <div className="search-results">
+        {results.map((r) => (
+          <Link key={r.name} to={r.to}>
+            <span>{r.type}</span>
+            <b>{r.name}</b>
+            <p>{r.detail}</p>
+          </Link>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Accommodation() {
+  return (
+    <>
+      <SectionHead label="SLEEP" title="Your stays" />{' '}
+      <div className="accommodation-list">
+        {data.hotels.map((h) => (
+          <article key={h.id}>
+            <div className="stay-art">{h.location.toUpperCase()}</div>
+            <div>
+              <span className="eyebrow">BOOKING · {h.bookingReference}</span>
+              <h2>{h.name}</h2>
+              <p>{h.address}</p>
+              <dl>
+                <dt>Check-in / out</dt>
+                <dd>
+                  {h.checkIn} / {h.checkOut}
+                </dd>
+                <dt>Parking</dt>
+                <dd>{h.parking}</dd>
+                <dt>EV charging</dt>
+                <dd>{h.charging}</dd>
+              </dl>
+            </div>
+            <QRCodeSVG
+              value={`https://www.google.com/maps/search/?api=1&query=${h.lat},${h.lng}`}
+              size={72}
+            />
+          </article>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Emergency() {
+  return (
+    <>
+      <SectionHead label="WHEN YOU NEED IT" title="Emergency contacts" />
+      <div className="emergency-grid">
+        {data.emergency.map((e) => (
+          <a href={`tel:${e.number.replace(/\s/g, '')}`} key={e.label}>
+            <PhoneIcon />
+            <span>{e.label}</span>
+            <b>{e.number}</b>
+          </a>
+        ))}
+      </div>
+    </>
+  )
+}
+export function Expenses() {
+  const [items, setItems] = useState<{ label: string; amount: number }[]>([])
+  const [label, setLabel] = useState('')
+  const [amount, setAmount] = useState('')
+  const add = () => {
+    if (label && Number(amount)) {
+      setItems([...items, { label, amount: Number(amount) }])
+      setLabel('')
+      setAmount('')
+    }
+  }
+  return (
+    <>
+      <SectionHead label="BUDGET" title="Trip expenses" />
+      <div className="expense-total">
+        <span>Trip total</span>
+        <b>{items.reduce((s, i) => s + i.amount, 0).toLocaleString()} NOK</b>
+      </div>
+      <div className="expense-form">
+        <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="e.g. Ferry" />
+        <input
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="NOK"
+          type="number"
+        />
+        <button onClick={add}>Add expense</button>
+      </div>
+      {items.map((i, n) => (
+        <div className="expense-item" key={`${i.label}-${n}`}>
+          <span>{i.label}</span>
+          <b>{i.amount} NOK</b>
+        </div>
+      ))}
+    </>
+  )
+}
+export function Settings() {
+  const { theme, setTheme } = useAppStore()
+  const download = () => {
+    const url = URL.createObjectURL(
+      new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }),
+    )
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'trip.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+  return (
+    <>
+      <SectionHead label="PREFERENCES" title="Make it yours" />
+      <section className="settings-card">
+        <h3>Appearance</h3>
+        <p>Choose a colour mode that feels right for the road.</p>
+        <div className="theme-options">
+          {(['system', 'light', 'dark'] as const).map((x) => (
+            <button key={x} className={theme === x ? 'selected' : ''} onClick={() => setTheme(x)}>
+              {x}
+            </button>
+          ))}
+        </div>
+      </section>
+      <section className="settings-card">
+        <h3>Trip data</h3>
+        <p>All content is validated JSON, ready to replace for your next adventure.</p>
+        <button onClick={download}>Download current data</button>
+      </section>
+      <Link className="settings-link" to="/emergency">
+        Emergency contacts →
+      </Link>
+      <Link className="settings-link" to="/expenses">
+        Expenses →
+      </Link>
+      <Link className="settings-link" to="/admin">
+        Admin & data validation →
+      </Link>
+    </>
+  )
+}
+export function Admin() {
+  const [result, setResult] = useState('Import a trip JSON file to validate its structure locally.')
+  const onImport = (file?: File) => {
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+      try {
+        const parsed = TripSchema.safeParse(JSON.parse(String(reader.result)))
+        setResult(
+          parsed.success
+            ? `Valid trip: ${parsed.data.trip.title} · ${parsed.data.days.length} day(s)`
+            : `Invalid data: ${parsed.error.issues[0]?.message}`,
+        )
+      } catch {
+        setResult('Invalid JSON file.')
+      }
+    }
+    reader.readAsText(file)
+  }
+  return (
+    <>
+      <SectionHead label="ADMIN" title="Trip data control" />
+      <section className="settings-card">
+        <h3>Validate an import</h3>
+        <p>Validation happens in your browser before any trip data is used.</p>
+        <input
+          type="file"
+          accept="application/json"
+          onChange={(event) => onImport(event.target.files?.[0])}
+        />
+        <p className="validation-result">{result}</p>
+      </section>
+      <section className="settings-card">
+        <h3>Data contract</h3>
+        <p>
+          The schema checks trip metadata, days, stays, places, packing categories and emergency
+          contacts.
+        </p>
+        <Link to="/">Preview active trip →</Link>
+      </section>
+    </>
+  )
+}

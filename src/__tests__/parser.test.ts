@@ -64,9 +64,7 @@ arrival:
   })
 
   it('throws on invalid YAML missing required fields', () => {
-    expect(() => parseRoadbookYaml('invalid: true')).toThrow(
-      'Invalid roadbook YAML'
-    )
+    expect(() => parseRoadbookYaml('invalid: true')).toThrow('Invalid roadbook YAML')
   })
 
   it('throws on empty input', () => {

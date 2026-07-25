@@ -17,15 +17,15 @@ All timings, routes, stops, accommodations, charging decisions, and recommendati
 
 ## Files Reviewed
 
-| File | Original Size | Normalized Size | Status |
-|------|--------------|----------------|--------|
-| day1.yaml | 0 bytes (empty on disk) | 291 lines | ✓ Written from user-provided content + normalized |
-| day2.yaml | 5,829 bytes | 304 lines | ✓ Normalized |
-| day3.yaml | 6,573 bytes | 283 lines | ✓ Normalized |
-| day4.yaml | 7,337 bytes | 304 lines | ✓ Normalized |
-| day5.yaml | 8,409 bytes | 361 lines | ✓ Normalized |
-| day6.yaml | 7,579 bytes | 308 lines | ✓ Normalized |
-| day7.yaml | 4,662 bytes | 213 lines | ✓ Normalized |
+| File      | Original Size           | Normalized Size | Status                                            |
+| --------- | ----------------------- | --------------- | ------------------------------------------------- |
+| day1.yaml | 0 bytes (empty on disk) | 291 lines       | ✓ Written from user-provided content + normalized |
+| day2.yaml | 5,829 bytes             | 304 lines       | ✓ Normalized                                      |
+| day3.yaml | 6,573 bytes             | 283 lines       | ✓ Normalized                                      |
+| day4.yaml | 7,337 bytes             | 304 lines       | ✓ Normalized                                      |
+| day5.yaml | 8,409 bytes             | 361 lines       | ✓ Normalized                                      |
+| day6.yaml | 7,579 bytes             | 308 lines       | ✓ Normalized                                      |
+| day7.yaml | 4,662 bytes             | 213 lines       | ✓ Normalized                                      |
 
 ---
 
@@ -34,12 +34,14 @@ All timings, routes, stops, accommodations, charging decisions, and recommendati
 ### 1. Driver Section — Normalized
 
 **Before:** Inconsistent structure across days.
+
 - Day 1: Had `roadType`, `targetArrivalSOC`, but no `dayType` or canonical `chargingStrategy`
 - Day 2: Had `targetArrivalSOC`, `roadNotes`, but no `dayType`
 - Day 3: Had `dayType`, `dcChargingRequired`, `overnightCharging`
 - Days 4–7: Had `dayType` and partial `chargingStrategy`
 
 **After:** All days now have:
+
 ```yaml
 driver:
   dayType: string
@@ -52,13 +54,14 @@ driver:
 ```
 
 **Day-specific fields intentionally preserved:**
-| Field | Day | Reason |
-|-------|-----|--------|
-| `roadType` | 1 | Useful driving context for a long transfer day |
-| `targetArrivalSOC` | 1, 2 | Specific SOC planning for these days |
-| `breakfastCharge` | 1 | Day 1 specific charging approach |
-| `overnightCharge` | 1, 3 | Explicit overnight charging flag |
-| `dcChargingRequired` | 3 | Explicit "no DC needed" indicator |
+
+| Field                | Day  | Reason                                         |
+| -------------------- | ---- | ---------------------------------------------- |
+| `roadType`           | 1    | Useful driving context for a long transfer day |
+| `targetArrivalSOC`   | 1, 2 | Specific SOC planning for these days           |
+| `breakfastCharge`    | 1    | Day 1 specific charging approach               |
+| `overnightCharge`    | 1, 3 | Explicit overnight charging flag               |
+| `dcChargingRequired` | 3    | Explicit "no DC needed" indicator              |
 
 ---
 
@@ -67,6 +70,7 @@ driver:
 **Before:** Not present in any file.
 
 **After:** All days now have:
+
 ```yaml
 navigator:
   regroupPoint: string
@@ -82,10 +86,12 @@ Content derived from existing itinerary information — no new itinerary data in
 ### 3. Stops — Schedule Object Standardized
 
 **Before:**
+
 - Day 1, Day 2: Used flat `arrival`, `departure`, `stayMinutes` directly on stop
 - Days 3–7: Used nested `schedule.arrival`, `schedule.departure`, `schedule.stayMinutes`
 
 **After:** All days use:
+
 ```yaml
 schedule:
   arrival: "HH:MM"
@@ -98,12 +104,14 @@ schedule:
 ### 4. Parking — Normalized
 
 **Before:**
+
 - Day 1: Used `gps.lat` / `gps.lng`
 - Day 2: No `gps` field, just `confidence`
 - Days 3–6: Used `gps: {}` (empty object)
 - Some stops had no `name` field
 
 **After:** All parking blocks use:
+
 ```yaml
 parking:
   name: string
@@ -121,12 +129,14 @@ GPS coordinates preserved where they existed (Day 1 Vestby: 59.60286, 10.74119).
 ### 5. Weather — Normalized
 
 **Before:**
+
 - Most stops used `sunny` / `rain`
 - Some used `activity` sub-key: `sunny.activity: "..."` / `rain.activity: "..."`
 - Day 1 had `decision: WEATHER` meta-field
 - Some stops had no weather at all
 
 **After:** All weather blocks use:
+
 ```yaml
 weather:
   good: string
@@ -140,24 +150,25 @@ Activities extracted from nested `activity` sub-keys into flat strings.
 ### 6. Experience Objects — Standardized
 
 **Before:**
+
 - Only Days 4, 5, 6 had `experience` objects on some attractions
 - Days 1–3 had no experience objects
 
 **After:** Experience objects added to all attractions/viewpoints:
 
-| Day | Stop | Priority |
-|-----|------|----------|
-| 2 | Stegastein Viewpoint | Signature |
-| 3 | Voss Gondol | Signature |
-| 3 | Bordalsgjelet Gorge | Major |
-| 4 | Loen Skylift | Signature (preserved) |
-| 4 | Lovatnet | Major (preserved) |
-| 4 | Optional Scenic Stop | Optional (preserved) |
-| 5 | Hellesylt Ferry Terminal | Major (preserved) |
-| 5 | Hellesylt → Geiranger Ferry | Signature (preserved) |
-| 5 | Flydalsjuvet Viewpoint | Major (preserved) |
-| 5 | Ørnesvingen (Eagle Bend) | Major (preserved) |
-| 6 | Borgund Stave Church | Signature (preserved) |
+| Day | Stop                        | Priority              |
+| --- | --------------------------- | --------------------- |
+| 2   | Stegastein Viewpoint        | Signature             |
+| 3   | Voss Gondol                 | Signature             |
+| 3   | Bordalsgjelet Gorge         | Major                 |
+| 4   | Loen Skylift                | Signature (preserved) |
+| 4   | Lovatnet                    | Major (preserved)     |
+| 4   | Optional Scenic Stop        | Optional (preserved)  |
+| 5   | Hellesylt Ferry Terminal    | Major (preserved)     |
+| 5   | Hellesylt → Geiranger Ferry | Signature (preserved) |
+| 5   | Flydalsjuvet Viewpoint      | Major (preserved)     |
+| 5   | Ørnesvingen (Eagle Bend)    | Major (preserved)     |
+| 6   | Borgund Stave Church        | Signature (preserved) |
 
 **Not added to:** departures, regroup points, charging stops, accommodation stops, meals, coffee stops, drives.
 
@@ -166,10 +177,12 @@ Activities extracted from nested `activity` sub-keys into flat strings.
 ### 7. Accommodation Names — Corrected
 
 **Before:**
+
 - Day 6 destination: `"Private Accommodation"`
 - Day 7 start: `"Private Accommodation"`
 
 **After:**
+
 - Day 6 destination: `"Borkevegen 55"`
 - Day 7 start: `"Borkevegen 55"`
 
@@ -182,6 +195,7 @@ Full address preserved: "Borkevegen 55, Ringsaker, Norway"
 **Before:** Inconsistent — some days had evening activities inside the accommodation stop, some had a separate `accommodation` block, some had nothing.
 
 **After:** All days now have a top-level `arrival` section:
+
 ```yaml
 arrival:
   accommodation: string
@@ -195,11 +209,13 @@ arrival:
 ### 9. Decision Points — Normalized
 
 **Before:** Mixed key names:
+
 - `ifSunny` / `ifRain`
 - `ifPoorWeather`
 - `preferred` / `alternative`
 
 **After:**
+
 - Weather decisions: `ifGood` / `ifRain`
 - Time decisions: `ifAhead` / `ifBehind`
 - Energy decisions: `ifRelaxed` / `ifTired`
@@ -212,6 +228,7 @@ arrival:
 **Before:** Present on Days 3–7 with varying structure. Missing from Days 1–2.
 
 **After:** All days have:
+
 ```yaml
 editorialNotes:
   pageMood: string
@@ -224,10 +241,12 @@ editorialNotes:
 ### 11. Regroup Point Naming
 
 **Before:**
+
 - Day 6: `"Lunch & Regroup"` (title preserved)
 - Day 7: `"Official Regroup Point – Karlstad"`
 
 **After:**
+
 - Day 6 title preserved: `"Lunch & Regroup"` (user-facing title kept)
 - Day 7 title simplified: `"Regroup Point — Karlstad"`
 - Navigator `regroupPoint` field uses consistent naming across all days
@@ -254,25 +273,25 @@ Day 5's `booking` section (ferry confirmation) preserved exactly as-is. Not adde
 
 ## Fields Intentionally Preserved (Day-Specific)
 
-| Field | Day(s) | Reason |
-|-------|--------|--------|
-| `driver.roadType` | 1 | Unique to long transfer day |
-| `driver.targetArrivalSOC` | 1, 2 | Specific SOC targets |
-| `driver.chargingStrategy.breakfastCharge` | 1 | Day 1 specific approach |
-| `driver.chargingStrategy.overnightCharge` | 1, 3 | Explicit flag |
-| `driver.chargingStrategy.dcChargingRequired` | 3 | Explicit "not needed" |
-| `summary.distanceKm` | 1 | Only Day 1 included km in summary |
-| `accommodation` (top-level) | 4, 5, 6 | Multi-night booking details |
-| `booking` | 5 | Ferry booking |
-| `routeDecision` | 6 | Route alternatives |
-| `tripSummary` | 7 | Trip completion |
-| `roadbookRules.targetArrival` | 1 | Specific time target |
-| `roadbookRules.noRush` | 3 | Exploration day flag |
-| `roadbookRules.regroupAfterLunch` | 6 | Day-specific rule |
-| `roadbookRules.regroupAtKarlstad` | 7 | Day-specific rule |
-| `stop.regroupPurpose` | 6 | Detailed regroup checklist |
-| `stop.navigatorTips` | 5 (ferry) | Ferry-specific tips |
-| `stop.lunch.window` | 2 | Specific lunch timing at Flåm |
+| Field                                        | Day(s)    | Reason                            |
+| -------------------------------------------- | --------- | --------------------------------- |
+| `driver.roadType`                            | 1         | Unique to long transfer day       |
+| `driver.targetArrivalSOC`                    | 1, 2      | Specific SOC targets              |
+| `driver.chargingStrategy.breakfastCharge`    | 1         | Day 1 specific approach           |
+| `driver.chargingStrategy.overnightCharge`    | 1, 3      | Explicit flag                     |
+| `driver.chargingStrategy.dcChargingRequired` | 3         | Explicit "not needed"             |
+| `summary.distanceKm`                         | 1         | Only Day 1 included km in summary |
+| `accommodation` (top-level)                  | 4, 5, 6   | Multi-night booking details       |
+| `booking`                                    | 5         | Ferry booking                     |
+| `routeDecision`                              | 6         | Route alternatives                |
+| `tripSummary`                                | 7         | Trip completion                   |
+| `roadbookRules.targetArrival`                | 1         | Specific time target              |
+| `roadbookRules.noRush`                       | 3         | Exploration day flag              |
+| `roadbookRules.regroupAfterLunch`            | 6         | Day-specific rule                 |
+| `roadbookRules.regroupAtKarlstad`            | 7         | Day-specific rule                 |
+| `stop.regroupPurpose`                        | 6         | Detailed regroup checklist        |
+| `stop.navigatorTips`                         | 5 (ferry) | Ferry-specific tips               |
+| `stop.lunch.window`                          | 2         | Specific lunch timing at Flåm     |
 
 ---
 
@@ -280,27 +299,27 @@ Day 5's `booking` section (ferry confirmation) preserved exactly as-is. Not adde
 
 ### GPS Coordinates Needed
 
-| Day | Stop | Status |
-|-----|------|--------|
-| 1 | Ustaoset Station | Empty — needs field verification |
-| 1 | Hardangervidda Scenic Stop | Empty — needs field verification |
-| 1 | Havsdalsgrenda | Empty — needs field verification |
-| 2 | Stegastein Viewpoint | Empty — needs field verification |
-| 2 | Flåm Visitor Parking | Empty — needs field verification |
-| 2 | Gudvangen Visitor Parking | Empty — needs field verification |
-| 2 | Flatlandsmo Camping | Empty — needs field verification |
-| 3 | Voss Gondol Parking | Empty — needs field verification |
-| 3 | Bordalsgjelet Visitor Parking | Empty — needs field verification |
-| 4 | Folven Adventure Camp | Empty — needs field verification |
-| 4 | Official Skylift Parking | Empty — needs field verification |
-| 4 | Lovatnet Lakeside Parking | Empty — needs field verification |
-| 5 | Folven Adventure Camp | Empty — needs field verification |
-| 5 | Hellesylt Ferry Queue | Empty — needs field verification |
-| 5 | Flydalsjuvet Parking | Empty — needs field verification |
-| 5 | Ørnesvingen Parking | Empty — needs field verification |
-| 6 | Borkevegen 55 | Empty — needs field verification |
-| 6 | Borgund Visitor Centre Parking | Empty — needs field verification |
-| 7 | Regroup Point Karlstad | Empty — needs field verification |
+| Day | Stop                           | Status                           |
+| --- | ------------------------------ | -------------------------------- |
+| 1   | Ustaoset Station               | Empty — needs field verification |
+| 1   | Hardangervidda Scenic Stop     | Empty — needs field verification |
+| 1   | Havsdalsgrenda                 | Empty — needs field verification |
+| 2   | Stegastein Viewpoint           | Empty — needs field verification |
+| 2   | Flåm Visitor Parking           | Empty — needs field verification |
+| 2   | Gudvangen Visitor Parking      | Empty — needs field verification |
+| 2   | Flatlandsmo Camping            | Empty — needs field verification |
+| 3   | Voss Gondol Parking            | Empty — needs field verification |
+| 3   | Bordalsgjelet Visitor Parking  | Empty — needs field verification |
+| 4   | Folven Adventure Camp          | Empty — needs field verification |
+| 4   | Official Skylift Parking       | Empty — needs field verification |
+| 4   | Lovatnet Lakeside Parking      | Empty — needs field verification |
+| 5   | Folven Adventure Camp          | Empty — needs field verification |
+| 5   | Hellesylt Ferry Queue          | Empty — needs field verification |
+| 5   | Flydalsjuvet Parking           | Empty — needs field verification |
+| 5   | Ørnesvingen Parking            | Empty — needs field verification |
+| 6   | Borkevegen 55                  | Empty — needs field verification |
+| 6   | Borgund Visitor Centre Parking | Empty — needs field verification |
+| 7   | Regroup Point Karlstad         | Empty — needs field verification |
 
 **Only Day 1 Vestby has confirmed GPS coordinates (59.60286, 10.74119).**
 

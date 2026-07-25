@@ -1,325 +1,324 @@
-version: "1.0"
+version: '1.0'
 status: LOCKED
 dayId: day-5
 
 metadata:
-  title: "Day 5"
-  subtitle: "The Geirangerfjord Experience"
-  theme: "UNESCO Fjord • Scenic Ferry • Mountain Viewpoints"
-  date: "2026-07-30"
+  title: 'Day 5'
+  subtitle: 'The Geirangerfjord Experience'
+  theme: 'UNESCO Fjord • Scenic Ferry • Mountain Viewpoints'
+  date: '2026-07-30'
 
 route:
   start:
-    name: "Folven Adventure Camp"
-    village: "Hjelle"
+    name: 'Folven Adventure Camp'
+    village: 'Hjelle'
   destination:
-    name: "Folven Adventure Camp"
-    village: "Hjelle"
+    name: 'Folven Adventure Camp'
+    village: 'Hjelle'
 
 summary:
-  departureTime: "09:15"
-  targetArrival: "17:30"
-  estimatedDrivingTime: "3h 30m"
-  plannedStopTime: "4h 30m"
-  totalTravelTime: "8h 00m"
+  departureTime: '09:15'
+  targetArrival: '17:30'
+  estimatedDrivingTime: '3h 30m'
+  plannedStopTime: '4h 30m'
+  totalTravelTime: '8h 00m'
 
 driver:
-  dayType: "Signature Experience"
+  dayType: 'Signature Experience'
   chargingStrategy:
-    philosophy: "Prefer overnight charging at Folven Adventure Camp."
-    preferredLocation: "Geiranger (if needed)"
+    philosophy: 'Prefer overnight charging at Folven Adventure Camp.'
+    preferredLocation: 'Geiranger (if needed)'
     backupLocations:
-      - "Geiranger"
-      - "Stryn"
-    decisionRule: "If battery >50% after ferry, continue. Otherwise charge in Geiranger."
+      - 'Geiranger'
+      - 'Stryn'
+    decisionRule: 'If battery >50% after ferry, continue. Otherwise charge in Geiranger.'
   notes:
     - "Today's schedule revolves around the booked ferry."
-    - "Allow extra travel time during peak tourist season."
-    - "Leave with camera easily accessible."
+    - 'Allow extra travel time during peak tourist season.'
+    - 'Leave with camera easily accessible.'
 
 navigator:
-  regroupPoint: "Hellesylt Ferry Terminal"
-  weatherReminder: "Fjord weather is mild but bring layers for the ferry deck."
-  chargingReminder: "Overnight charging at Folven preferred. DC only if needed in Geiranger."
+  regroupPoint: 'Hellesylt Ferry Terminal'
+  weatherReminder: 'Fjord weather is mild but bring layers for the ferry deck.'
+  chargingReminder: 'Overnight charging at Folven preferred. DC only if needed in Geiranger.'
   notes:
-    - "The ferry is the Experience of the Day — enjoy it fully."
-    - "Flydalsjuvet and Ørnesvingen are the postcard views of Norway."
+    - 'The ferry is the Experience of the Day — enjoy it fully.'
+    - 'Flydalsjuvet and Ørnesvingen are the postcard views of Norway.'
 
 ###############################################################
 
 accommodation:
-  name: "Folven Adventure Camp"
-  address: "Folven, 6798 Hjelle, Norway"
+  name: 'Folven Adventure Camp'
+  address: 'Folven, 6798 Hjelle, Norway'
   booking:
     confirmed: true
-    checkIn: "2026-07-29"
-    checkOut: "2026-07-31"
+    checkIn: '2026-07-29'
+    checkOut: '2026-07-31'
   parking:
-    name: "Folven Adventure Camp"
+    name: 'Folven Adventure Camp'
     confidence: VERIFIED
     gps:
       latitude:
       longitude:
-    notes: ""
+    notes: ''
   charging:
     overnight:
-      status: "Verify availability on arrival."
+      status: 'Verify availability on arrival.'
     backup:
-      - "Stryn"
-      - "Geiranger"
+      - 'Stryn'
+      - 'Geiranger'
 
 ###############################################################
 
 booking:
   required: true
-  activity: "Hellesylt → Geiranger Ferry"
-  confirmationStatus: "Confirmed"
-  departureTime: "11:30"
-  recommendedArrival: "10:30"
-  boardingBuffer: "60 minutes"
+  activity: 'Hellesylt → Geiranger Ferry'
+  confirmationStatus: 'Confirmed'
+  departureTime: '11:30'
+  recommendedArrival: '10:30'
+  boardingBuffer: '60 minutes'
   notes:
-    - "Keep booking confirmation ready."
-    - "Follow ferry crew instructions."
-    - "Prepare cameras before departure."
+    - 'Keep booking confirmation ready.'
+    - 'Follow ferry crew instructions.'
+    - 'Prepare cameras before departure.'
 
 ###############################################################
 
 stops:
-
-###############################################################
+  ###############################################################
 
   - id: departure
     sequence: 1
     type: departure
     fixed: true
-    title: "Folven Adventure Camp"
+    title: 'Folven Adventure Camp'
     schedule:
-      arrival: "09:15"
-      departure: "09:15"
+      arrival: '09:15'
+      departure: '09:15'
       stayMinutes: 0
     beforeLeaving:
-      - "Breakfast completed"
-      - "Weather checked"
-      - "Homemade lunch packed"
-      - "Camera batteries charged"
-      - "Ferry booking ready"
+      - 'Breakfast completed'
+      - 'Weather checked'
+      - 'Homemade lunch packed'
+      - 'Camera batteries charged'
+      - 'Ferry booking ready'
 
-###############################################################
+  ###############################################################
 
   - id: hellesylt
     sequence: 2
     type: ferryTerminal
     fixed: true
-    title: "Hellesylt Ferry Terminal"
+    title: 'Hellesylt Ferry Terminal'
     experience:
       priority: Major
-      estimatedMemory: "4/5"
-      whyStopHere: "Gateway to the UNESCO Geirangerfjord ferry crossing."
+      estimatedMemory: '4/5'
+      whyStopHere: 'Gateway to the UNESCO Geirangerfjord ferry crossing.'
     schedule:
-      arrival: "10:30"
-      departure: "11:30"
+      arrival: '10:30'
+      departure: '11:30'
       stayMinutes: 60
     purpose:
-      - "Queue for ferry"
-      - "Restrooms"
-      - "Stretch"
-      - "Prepare cameras"
+      - 'Queue for ferry'
+      - 'Restrooms'
+      - 'Stretch'
+      - 'Prepare cameras'
     navigation:
       destination:
-        name: "Hellesylt Ferry Terminal"
+        name: 'Hellesylt Ferry Terminal'
       parking:
-        name: "Hellesylt Ferry Queue"
+        name: 'Hellesylt Ferry Queue'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: "Follow ferry queue signs."
+        notes: 'Follow ferry queue signs.'
 
-###############################################################
+  ###############################################################
 
   - id: ferry
     sequence: 3
     type: experience
     fixed: true
-    title: "Hellesylt → Geiranger Ferry"
+    title: 'Hellesylt → Geiranger Ferry'
     experience:
       priority: Signature
-      estimatedMemory: "5/5"
+      estimatedMemory: '5/5'
       whyStopHere: "Cruise through the UNESCO-listed Geirangerfjord and enjoy some of Norway's most iconic scenery."
     schedule:
-      departure: "11:30"
-      arrival: "12:35"
+      departure: '11:30'
+      arrival: '12:35'
       stayMinutes: 65
     purpose:
-      - "Seven Sisters Waterfall"
-      - "Bridal Veil Waterfall"
-      - "The Suitor Waterfall"
-      - "Fjord photography"
-      - "Relax"
+      - 'Seven Sisters Waterfall'
+      - 'Bridal Veil Waterfall'
+      - 'The Suitor Waterfall'
+      - 'Fjord photography'
+      - 'Relax'
     navigatorTips:
-      - "Spend time on the outside deck."
-      - "Watch the waterfalls on both sides."
-      - "Listen to the onboard commentary."
+      - 'Spend time on the outside deck.'
+      - 'Watch the waterfalls on both sides.'
+      - 'Listen to the onboard commentary.'
 
-###############################################################
+  ###############################################################
 
   - id: lunch
     sequence: 4
     type: meal
     fixed: true
-    title: "Lunch Decision"
+    title: 'Lunch Decision'
     schedule:
-      arrival: "12:45"
-      departure: "13:30"
+      arrival: '12:45'
+      departure: '13:30'
       stayMinutes: 45
     preferred:
-      type: "Homemade Lunch"
+      type: 'Homemade Lunch'
       recommendation:
-        - "Geiranger waterfront picnic area"
-        - "Nearby scenic viewpoint"
+        - 'Geiranger waterfront picnic area'
+        - 'Nearby scenic viewpoint'
     alternative:
-      type: "Local Restaurant"
+      type: 'Local Restaurant'
       recommendation:
-        name: "Brasserie Posten"
+        name: 'Brasserie Posten'
         reason:
-          - "Indoor seating"
-          - "Vegetarian options"
-          - "Good rainy-day alternative"
-          - "Convenient central location"
+          - 'Indoor seating'
+          - 'Vegetarian options'
+          - 'Good rainy-day alternative'
+          - 'Convenient central location'
 
-###############################################################
+  ###############################################################
 
   - id: flydalsjuvet
     sequence: 5
     type: attraction
     fixed: true
-    title: "Flydalsjuvet Viewpoint"
+    title: 'Flydalsjuvet Viewpoint'
     experience:
       priority: Major
-      estimatedMemory: "5/5"
-      whyStopHere: "The classic postcard view over Geirangerfjord."
+      estimatedMemory: '5/5'
+      whyStopHere: 'The classic postcard view over Geirangerfjord.'
     schedule:
-      arrival: "13:45"
-      departure: "14:20"
+      arrival: '13:45'
+      departure: '14:20'
       stayMinutes: 35
     purpose:
-      - "Photography"
-      - "Family photo"
-      - "Panoramic viewpoint"
+      - 'Photography'
+      - 'Family photo'
+      - 'Panoramic viewpoint'
     navigation:
       destination:
-        name: "Flydalsjuvet"
+        name: 'Flydalsjuvet'
       parking:
-        name: "Flydalsjuvet Parking"
+        name: 'Flydalsjuvet Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: ""
+        notes: ''
     weather:
-      good: "Full viewpoint experience."
-      rain: "Brief visit — still impressive in mist."
+      good: 'Full viewpoint experience.'
+      rain: 'Brief visit — still impressive in mist.'
 
-###############################################################
+  ###############################################################
 
   - id: ornesvingen
     sequence: 6
     type: attraction
     fixed: true
-    title: "Ørnesvingen (Eagle Bend)"
+    title: 'Ørnesvingen (Eagle Bend)'
     experience:
       priority: Major
-      estimatedMemory: "5/5"
-      whyStopHere: "Complete the Geiranger experience with the iconic elevated view across the fjord."
+      estimatedMemory: '5/5'
+      whyStopHere: 'Complete the Geiranger experience with the iconic elevated view across the fjord.'
     schedule:
-      arrival: "14:50"
-      departure: "15:20"
+      arrival: '14:50'
+      departure: '15:20'
       stayMinutes: 30
     purpose:
-      - "Scenic overlook"
-      - "Photography"
+      - 'Scenic overlook'
+      - 'Photography'
     navigation:
       destination:
-        name: "Ørnesvingen"
+        name: 'Ørnesvingen'
       parking:
-        name: "Ørnesvingen Parking"
+        name: 'Ørnesvingen Parking'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: ""
+        notes: ''
     weather:
-      good: "Enjoy the panoramic overlook."
-      rain: "Quick photo stop."
+      good: 'Enjoy the panoramic overlook.'
+      rain: 'Quick photo stop.'
 
-###############################################################
+  ###############################################################
 
   - id: optional
     sequence: 7
     type: flexible
     fixed: false
     optional: true
-    title: "Explore Geiranger Village"
+    title: 'Explore Geiranger Village'
     schedule:
-      arrival: "15:30"
-      departure: "16:10"
+      arrival: '15:30'
+      departure: '16:10'
       stayMinutes: 40
     options:
-      - "Ice cream"
-      - "Coffee"
-      - "Souvenir shopping"
-      - "Fjord promenade"
-    recommendation: "Skip if everyone prefers an early return."
+      - 'Ice cream'
+      - 'Coffee'
+      - 'Souvenir shopping'
+      - 'Fjord promenade'
+    recommendation: 'Skip if everyone prefers an early return.'
 
-###############################################################
+  ###############################################################
 
   - id: folven
     sequence: 8
     type: accommodation
     fixed: true
-    title: "Folven Adventure Camp"
+    title: 'Folven Adventure Camp'
     schedule:
-      arrival: "17:30"
+      arrival: '17:30'
       departure: null
       stayMinutes: null
     purpose:
-      - "Relax"
-      - "Dinner"
-      - "Charge EVs if available"
-      - "Prepare for the final driving day"
+      - 'Relax'
+      - 'Dinner'
+      - 'Charge EVs if available'
+      - 'Prepare for the final driving day'
 
 ###############################################################
 
 arrival:
-  accommodation: "Folven Adventure Camp"
-  parking: "Guest parking at Folven"
+  accommodation: 'Folven Adventure Camp'
+  parking: 'Guest parking at Folven'
   eveningPlan:
-    - "Relax"
-    - "Dinner"
-    - "Charge EVs if available"
-    - "Prepare for the final driving day"
-  tomorrowPreparation: "Long drive to Ringsaker tomorrow. Pack and prepare."
+    - 'Relax'
+    - 'Dinner'
+    - 'Charge EVs if available'
+    - 'Prepare for the final driving day'
+  tomorrowPreparation: 'Long drive to Ringsaker tomorrow. Pack and prepare.'
 
 ###############################################################
 
 passingHighlights:
-  - "UNESCO Geirangerfjord"
-  - "Seven Sisters Waterfall"
-  - "Bridal Veil Waterfall"
-  - "The Suitor Waterfall"
-  - "Historic mountain farms"
+  - 'UNESCO Geirangerfjord'
+  - 'Seven Sisters Waterfall'
+  - 'Bridal Veil Waterfall'
+  - 'The Suitor Waterfall'
+  - 'Historic mountain farms'
 
 ###############################################################
 
 decisionPoints:
   - id: lunch
-    trigger: "Lunch"
-    ifGood: "Homemade picnic"
-    ifRain: "Brasserie Posten"
+    trigger: 'Lunch'
+    ifGood: 'Homemade picnic'
+    ifRain: 'Brasserie Posten'
   - id: village
-    trigger: "Time and energy"
-    ifRelaxed: "Explore Geiranger village."
-    ifTired: "Return directly to Folven."
+    trigger: 'Time and energy'
+    ifRelaxed: 'Explore Geiranger village.'
+    ifTired: 'Return directly to Folven.'
 
 ###############################################################
 
@@ -332,7 +331,7 @@ roadbookRules:
 ###############################################################
 
 routeAudit:
-  experienceOfTheDay: "Geirangerfjord Ferry"
+  experienceOfTheDay: 'Geirangerfjord Ferry'
   unnecessaryDetours: false
   chargingIntegrated: true
   weatherBackup: true
@@ -341,21 +340,21 @@ routeAudit:
 ###############################################################
 
 editorialNotes:
-  pageMood: "Iconic"
-  heroImage: "Geirangerfjord ferry passing the Seven Sisters waterfall"
+  pageMood: 'Iconic'
+  heroImage: 'Geirangerfjord ferry passing the Seven Sisters waterfall'
   designGuidance:
-    - "Largest hero image in the Roadbook."
-    - "Display ferry booking banner prominently."
+    - 'Largest hero image in the Roadbook.'
+    - 'Display ferry booking banner prominently.'
     - "Highlight today's signature experience."
-    - "Use deep fjord blue palette."
-    - "Lunch should remain a decision card."
-    - "Keep optional village visit visually separated."
+    - 'Use deep fjord blue palette.'
+    - 'Lunch should remain a decision card.'
+    - 'Keep optional village visit visually separated.'
     - "Add reminder for tomorrow's drive back to Sweden."
 
 ###############################################################
 
 todos:
-  - "Add GPS coordinates for Hellesylt ferry queue."
-  - "Add GPS coordinates for Flydalsjuvet parking."
-  - "Add GPS coordinates for Ørnesvingen parking."
-  - "Verify EV charging availability in Geiranger."
+  - 'Add GPS coordinates for Hellesylt ferry queue.'
+  - 'Add GPS coordinates for Flydalsjuvet parking.'
+  - 'Add GPS coordinates for Ørnesvingen parking.'
+  - 'Verify EV charging availability in Geiranger.'

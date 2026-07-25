@@ -1,4 +1,5 @@
 # Norway Road Trip Companion
+
 # DATA_MODEL_STOP_EXAMPLE_DAY1.md
 
 Version: 1.0
@@ -40,27 +41,23 @@ route:
   end: Geilo
 
 summary:
+  departureTime: '06:30'
 
-  departureTime: "06:30"
-
-  estimatedArrival: "17:45"
+  estimatedArrival: '17:45'
 
   distanceKm: 590
 
-  drivingTime: "8h"
+  drivingTime: '8h'
 
-  totalStopTime: "2h"
+  totalStopTime: '2h'
 
-  weatherSummary:
-    "Warm morning, cooler mountain afternoon."
+  weatherSummary: 'Warm morning, cooler mountain afternoon.'
 
-  highestElevation: "≈1000 m"
+  highestElevation: '≈1000 m'
 
-  heroImage:
-    geilo-summer.jpg
+  heroImage: geilo-summer.jpg
 
-  progress:
-    "Day 1 of 7"
+  progress: 'Day 1 of 7'
 ```
 
 ---
@@ -69,18 +66,17 @@ summary:
 
 ```yaml
 journey:
+  - departure
 
-- departure
+  - breakfast-charge
 
-- breakfast-charge
+  - scenic-break
 
-- scenic-break
+  - picnic
 
-- picnic
+  - coffee
 
-- coffee
-
-- accommodation
+  - accommodation
 ```
 
 ---
@@ -96,49 +92,35 @@ sequence: 1
 
 type: departure
 
-title:
-  Leave Gothenburg
+title: Leave Gothenburg
 
-plannedArrival:
-  "06:30"
+plannedArrival: '06:30'
 
-plannedDeparture:
-  "06:30"
+plannedDeparture: '06:30'
 
-recommendedStayMinutes:
-  0
+recommendedStayMinutes: 0
 
 meetingPoint:
-
-  name:
-    Home
+  name: Home
 
 purpose:
+  - Departure
 
-- Departure
-
-parking:
-
-  not_applicable
+parking: not_applicable
 
 driver:
-
-  roadNotes:
-    Leave with full battery.
+  roadNotes: Leave with full battery.
 
 family:
-
-  recommendation:
-    Everyone should have breakfast before departure.
+  recommendation: Everyone should have breakfast before departure.
 
 beforeLeaving:
-
-- Wallet
-- Passports
-- Camera
-- Charging cards
-- Homemade food
-- Water
+  - Wallet
+  - Passports
+  - Camera
+  - Charging cards
+  - Homemade food
+  - Water
 ```
 
 ---
@@ -154,23 +136,17 @@ sequence: 2
 
 type: charging
 
-title:
-  Tesla Supercharger Vestby
+title: Tesla Supercharger Vestby
 
-plannedArrival:
-  "08:40"
+plannedArrival: '08:40'
 
-arrivalWindowStart:
-  "08:35"
+arrivalWindowStart: '08:35'
 
-arrivalWindowEnd:
-  "08:55"
+arrivalWindowEnd: '08:55'
 
-plannedDeparture:
-  "09:05"
+plannedDeparture: '09:05'
 
-recommendedStayMinutes:
-  25
+recommendedStayMinutes: 25
 ```
 
 ---
@@ -179,12 +155,9 @@ recommendedStayMinutes:
 
 ```yaml
 meetingPoint:
+  purpose: Breakfast + Charging
 
-  purpose:
-    Breakfast + Charging
-
-  nextMeetingPoint:
-    Scenic Mountain Stop
+  nextMeetingPoint: Scenic Mountain Stop
 ```
 
 ---
@@ -193,16 +166,13 @@ meetingPoint:
 
 ```yaml
 parking:
-
-  name:
-    Tesla Supercharger Parking
+  name: Tesla Supercharger Parking
 
   latitude:
 
   longitude:
 
-  walkingDistance:
-    0
+  walkingDistance: 0
 
   googleMaps:
 
@@ -215,18 +185,13 @@ parking:
 
 ```yaml
 driver:
+  roadNotes: Easy motorway access.
 
-  roadNotes:
-    Easy motorway access.
+  parkingNotes: Large parking area.
 
-  parkingNotes:
-    Large parking area.
+  departureRecommendation: Leave once both vehicles reach target SOC.
 
-  departureRecommendation:
-    Leave once both vehicles reach target SOC.
-
-  roadHazards:
-    None expected.
+  roadHazards: None expected.
 ```
 
 ---
@@ -235,39 +200,28 @@ driver:
 
 ```yaml
 charging:
-
-  network:
-    Tesla
+  network: Tesla
 
   compatible:
+    - Tesla
 
-  - Tesla
+    - Volvo EX40
 
-  - Volvo EX40
+  stalls: 16
 
-  stalls:
-    16
+  maxPower: 250
 
-  maxPower:
-    250
+  arrivalSOC: 30
 
-  arrivalSOC:
-    30
+  departureSOC: 80
 
-  departureSOC:
-    80
+  estimatedChargeMinutes: 22
 
-  estimatedChargeMinutes:
-    22
+  estimatedEnergy: 38
 
-  estimatedEnergy:
-    38
+  estimatedPricePerKWh: 4.8
 
-  estimatedPricePerKWh:
-    4.8
-
-  estimatedSessionCost:
-    182
+  estimatedSessionCost: 182
 ```
 
 ---
@@ -276,15 +230,11 @@ charging:
 
 ```yaml
 food:
+  recommendation: Coffee + Breakfast
 
-  recommendation:
-    Coffee + Breakfast
+  packedFood: Save for picnic stop.
 
-  packedFood:
-    Save for picnic stop.
-
-  dessert:
-    Optional.
+  dessert: Optional.
 ```
 
 ---
@@ -293,21 +243,15 @@ food:
 
 ```yaml
 localDiscovery:
+  name: Local Bakery
 
-  name:
-    Local Bakery
+  whyFamous: Fresh Norwegian cinnamon buns.
 
-  whyFamous:
-    Fresh Norwegian cinnamon buns.
+  vegetarian: Excellent
 
-  vegetarian:
-    Excellent
+  mustTry: Cinnamon Bun
 
-  mustTry:
-    Cinnamon Bun
-
-  recommendation:
-    Coffee + pastry only.
+  recommendation: Coffee + pastry only.
 ```
 
 ---
@@ -316,20 +260,16 @@ localDiscovery:
 
 ```yaml
 experience:
-
-  whyStop:
-
-    Recharge both EVs while everyone enjoys breakfast before entering Norway.
+  whyStop: Recharge both EVs while everyone enjoys breakfast before entering Norway.
 
   bestUse:
+    - Coffee
 
-  - Coffee
+    - Breakfast
 
-  - Breakfast
+    - Kids stretch
 
-  - Kids stretch
-
-  - Restrooms
+    - Restrooms
 ```
 
 ---
@@ -338,14 +278,9 @@ experience:
 
 ```yaml
 weather:
+  sunny: Outdoor seating.
 
-  sunny:
-
-    Outdoor seating.
-
-  rain:
-
-    Indoor café available.
+  rain: Indoor café available.
 ```
 
 ---
@@ -354,14 +289,13 @@ weather:
 
 ```yaml
 beforeLeaving:
+  - Charge disconnected
 
-- Charge disconnected
+  - Coffee finished
 
-- Coffee finished
+  - Kids ready
 
-- Kids ready
-
-- Navigation started
+  - Navigation started
 ```
 
 ---
@@ -377,17 +311,13 @@ sequence: 3
 
 type: viewpoint
 
-title:
-  Scenic Mountain Viewpoint
+title: Scenic Mountain Viewpoint
 
-plannedArrival:
-  "11:15"
+plannedArrival: '11:15'
 
-plannedDeparture:
-  "11:45"
+plannedDeparture: '11:45'
 
-recommendedStayMinutes:
-  30
+recommendedStayMinutes: 30
 ```
 
 ---
@@ -396,14 +326,11 @@ recommendedStayMinutes:
 
 ```yaml
 parking:
-
   officialParking:
 
-  walkingDistance:
-    150
+  walkingDistance: 150
 
-  walkingTime:
-    3
+  walkingTime: 3
 ```
 
 ---
@@ -412,20 +339,16 @@ parking:
 
 ```yaml
 experience:
-
-  whyStop:
-
-    First spectacular mountain panorama of the trip.
+  whyStop: First spectacular mountain panorama of the trip.
 
   bestUse:
+    - Homemade snacks
 
-  - Homemade snacks
+    - Family photos
 
-  - Family photos
+    - Stretch
 
-  - Stretch
-
-  - Scenic walk
+    - Scenic walk
 ```
 
 ---
@@ -434,21 +357,15 @@ experience:
 
 ```yaml
 photography:
+  bestView: Panorama
 
-  bestView:
-    Panorama
+  familyPhoto: Yes
 
-  familyPhoto:
-    Yes
+  lens: Wide Angle
 
-  lens:
-    Wide Angle
+  drone: Not Recommended
 
-  drone:
-    Not Recommended
-
-  photoTime:
-    20
+  photoTime: 20
 ```
 
 ---
@@ -457,15 +374,11 @@ photography:
 
 ```yaml
 food:
+  packedLunch: No
 
-  packedLunch:
-    No
+  packedSnacks: Excellent
 
-  packedSnacks:
-    Excellent
-
-  coffee:
-    Not available
+  coffee: Not available
 ```
 
 ---
@@ -474,14 +387,9 @@ food:
 
 ```yaml
 weather:
+  sunny: Walk to viewpoint.
 
-  sunny:
-
-    Walk to viewpoint.
-
-  rain:
-
-    Stay at parking viewpoint only.
+  rain: Stay at parking viewpoint only.
 ```
 
 ---
@@ -497,14 +405,11 @@ sequence: 4
 
 type: picnic
 
-plannedArrival:
-  "13:00"
+plannedArrival: '13:00'
 
-plannedDeparture:
-  "13:45"
+plannedDeparture: '13:45'
 
-recommendedStayMinutes:
-  45
+recommendedStayMinutes: 45
 ```
 
 ---
@@ -531,14 +436,9 @@ family:
 
 ```yaml
 food:
+  recommendation: This is today's best location for packed homemade lunch.
 
-  recommendation:
-
-    This is today's best location for packed homemade lunch.
-
-  restaurant:
-
-    Skip.
+  restaurant: Skip.
 ```
 
 ---
@@ -547,14 +447,9 @@ food:
 
 ```yaml
 weather:
+  sunny: Outdoor picnic.
 
-  sunny:
-
-    Outdoor picnic.
-
-  rain:
-
-    Continue to nearby café.
+  rain: Continue to nearby café.
 ```
 
 ---
@@ -570,11 +465,9 @@ sequence: 5
 
 type: coffee
 
-plannedArrival:
-  "15:30"
+plannedArrival: '15:30'
 
-plannedDeparture:
-  "15:50"
+plannedDeparture: '15:50'
 ```
 
 ---
@@ -582,17 +475,11 @@ plannedDeparture:
 ### Local Discovery
 
 ```yaml
-recommendation:
+recommendation: Try local waffles.
 
-  Try local waffles.
+vegetarian: Excellent
 
-vegetarian:
-
-  Excellent
-
-coffee:
-
-  Excellent
+coffee: Excellent
 ```
 
 ---
@@ -608,11 +495,9 @@ sequence: 6
 
 type: accommodation
 
-plannedArrival:
-  "17:45"
+plannedArrival: '17:45'
 
-recommendedStayMinutes:
-  overnight
+recommendedStayMinutes: overnight
 ```
 
 ---
@@ -621,30 +506,17 @@ recommendedStayMinutes:
 
 ```yaml
 arrival:
+  accommodation: Havsdalsgrenda Apartments
 
-  accommodation:
+  checkIn: Available
 
-    Havsdalsgrenda Apartments
+  parking: Free
 
-  checkIn:
+  overnightCharging: Available
 
-    Available
+  nearestGrocery: Kiwi Geilo
 
-  parking:
-
-    Free
-
-  overnightCharging:
-
-    Available
-
-  nearestGrocery:
-
-    Kiwi Geilo
-
-  dinner:
-
-    Local recommendation
+  dinner: Local recommendation
 ```
 
 ---
@@ -653,18 +525,17 @@ arrival:
 
 ```yaml
 evening:
+  - Charge both vehicles
 
-- Charge both vehicles
+  - Short evening walk
 
-- Short evening walk
+  - Grocery if required
 
-- Grocery if required
+  - Prepare Day 2
 
-- Prepare Day 2
+  - Check weather
 
-- Check weather
-
-- Camera batteries charging
+  - Camera batteries charging
 ```
 
 ---
@@ -673,14 +544,9 @@ evening:
 
 ```yaml
 tomorrow:
+  departure: '08:00'
 
-  departure:
-
-    "08:00"
-
-  route:
-
-    Geilo
+  route: Geilo
 
     →
 
@@ -690,13 +556,9 @@ tomorrow:
 
     Voss
 
-  highlight:
+  highlight: Flåm
 
-    Flåm
-
-  estimatedDrive:
-
-    "4h"
+  estimatedDrive: '4h'
 ```
 
 ---

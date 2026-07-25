@@ -16,7 +16,9 @@ export function RoadbookHeader({ day }: RoadbookHeaderProps) {
       <h1 className="rb-header__title">{metadata.subtitle}</h1>
       <div className="rb-header__route">
         <span className="rb-header__route-point">{route.start.name}</span>
-        <span className="rb-header__route-arrow" aria-hidden="true">→</span>
+        <span className="rb-header__route-arrow" aria-hidden="true">
+          →
+        </span>
         <span className="rb-header__route-point">{route.destination.name}</span>
       </div>
       <div className="rb-header__stats">

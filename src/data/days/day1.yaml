@@ -1,113 +1,112 @@
-version: "1.0"
+version: '1.0'
 status: LOCKED
 dayId: day-1
 
 metadata:
-  title: "Day 1"
-  subtitle: "Leaving Everyday Life Behind"
-  theme: "City → Forest → Mountains"
-  date: "2026-07-26"
+  title: 'Day 1'
+  subtitle: 'Leaving Everyday Life Behind'
+  theme: 'City → Forest → Mountains'
+  date: '2026-07-26'
 
 route:
   start:
-    name: "Gothenburg"
-    country: "Sweden"
+    name: 'Gothenburg'
+    country: 'Sweden'
   destination:
-    name: "Havsdalsgrenda Geilo Apartments"
-    city: "Geilo"
+    name: 'Havsdalsgrenda Geilo Apartments'
+    city: 'Geilo'
 
 summary:
-  departureTime: "06:30"
-  targetArrival: "16:45-17:00"
+  departureTime: '06:30'
+  targetArrival: '16:45-17:00'
   distanceKm: 590
-  estimatedDrivingTime: "7h 45m"
-  plannedStopTime: "1h 45m"
-  totalTravelTime: "9h 30m"
+  estimatedDrivingTime: '7h 45m'
+  plannedStopTime: '1h 45m'
+  totalTravelTime: '9h 30m'
 
 driver:
-  dayType: "Long Transfer"
+  dayType: 'Long Transfer'
   roadType:
     - Motorway
     - National Highway
     - Mountain Road
   chargingStrategy:
-    philosophy: "Charge during breakfast. Arrive on overnight charging."
-    preferredLocation: "Vestby"
+    philosophy: 'Charge during breakfast. Arrive on overnight charging.'
+    preferredLocation: 'Vestby'
     backupLocations:
-      - "Drammen"
-      - "Kongsberg"
-    decisionRule: "Breakfast charge to 80%. No additional DC charging needed."
+      - 'Drammen'
+      - 'Kongsberg'
+    decisionRule: 'Breakfast charge to 80%. No additional DC charging needed.'
     breakfastCharge: true
     overnightCharge: true
   targetArrivalSOC: 25
   notes:
-    - "Leave with 100% battery"
-    - "Breakfast during charging"
-    - "Avoid unnecessary charging stops"
+    - 'Leave with 100% battery'
+    - 'Breakfast during charging'
+    - 'Avoid unnecessary charging stops'
 
 navigator:
-  regroupPoint: "Tesla Supercharger Vestby"
-  weatherReminder: "Check mountain weather before Hardangervidda crossing."
-  chargingReminder: "Charge during breakfast at Vestby. No further DC charging planned."
+  regroupPoint: 'Tesla Supercharger Vestby'
+  weatherReminder: 'Check mountain weather before Hardangervidda crossing.'
+  chargingReminder: 'Charge during breakfast at Vestby. No further DC charging planned.'
   notes:
-    - "Crossing into Norway is seamless — no border stop required."
-    - "Hardangervidda plateau weather can change rapidly."
+    - 'Crossing into Norway is seamless — no border stop required.'
+    - 'Hardangervidda plateau weather can change rapidly.'
 
 ###############################################################
 
 stops:
-
-###############################################################
+  ###############################################################
 
   - id: departure
     sequence: 1
     type: departure
     fixed: true
-    title: "Home"
+    title: 'Home'
     schedule:
-      arrival: "06:30"
-      departure: "06:30"
+      arrival: '06:30'
+      departure: '06:30'
       stayMinutes: 0
     purpose:
-      - "Holiday begins"
+      - 'Holiday begins'
     navigation:
       required: false
     beforeLeaving:
-      - "Breakfast completed"
-      - "Homemade lunch packed"
-      - "Water bottles filled"
-      - "Camera batteries charged"
-      - "Charging cards packed"
-      - "Navigation downloaded"
-      - "Both EVs at 100%"
+      - 'Breakfast completed'
+      - 'Homemade lunch packed'
+      - 'Water bottles filled'
+      - 'Camera batteries charged'
+      - 'Charging cards packed'
+      - 'Navigation downloaded'
+      - 'Both EVs at 100%'
 
-###############################################################
+  ###############################################################
 
   - id: vestby
     sequence: 2
     type: charging
     fixed: true
-    title: "Tesla Supercharger Vestby"
+    title: 'Tesla Supercharger Vestby'
     schedule:
-      arrival: "08:40"
-      departure: "09:05"
+      arrival: '08:40'
+      departure: '09:05'
       stayMinutes: 25
     purpose:
-      - "Breakfast"
-      - "Coffee"
-      - "Charging"
-      - "Regroup Point"
+      - 'Breakfast'
+      - 'Coffee'
+      - 'Charging'
+      - 'Regroup Point'
     navigation:
       destination:
-        name: "Tesla Supercharger Vestby"
-      address: "Senterveien 8, 1540 Vestby"
+        name: 'Tesla Supercharger Vestby'
+      address: 'Senterveien 8, 1540 Vestby'
       parking:
-        name: "Tesla Supercharger Vestby"
+        name: 'Tesla Supercharger Vestby'
         confidence: VERIFIED
         gps:
           latitude: 59.60286
           longitude: 10.74119
-        notes: ""
+        notes: ''
     charging:
       network: Tesla
       compatible:
@@ -126,146 +125,146 @@ stops:
       grocery: true
       coffee: true
     food:
-      recommendation: "Coffee + share one cinnamon bun."
-      packedLunch: "Save homemade lunch for Ustaoset."
+      recommendation: 'Coffee + share one cinnamon bun.'
+      packedLunch: 'Save homemade lunch for Ustaoset.'
     localDiscovery:
       enabled: true
-      business: "Vestby Bakeri"
-      recommendation: "Coffee and one cinnamon bun."
-      vegetarian: "Excellent"
+      business: 'Vestby Bakeri'
+      recommendation: 'Coffee and one cinnamon bun.'
+      vegetarian: 'Excellent'
       roadbookRating: 5
     weather:
-      good: "Outdoor seating"
-      rain: "Indoor café"
+      good: 'Outdoor seating'
+      rain: 'Indoor café'
 
-###############################################################
+  ###############################################################
 
   - id: ustaoset
     sequence: 3
     type: picnic
     fixed: true
-    title: "Ustaoset Lakeside Picnic"
+    title: 'Ustaoset Lakeside Picnic'
     schedule:
-      arrival: "11:50"
-      departure: "12:35"
+      arrival: '11:50'
+      departure: '12:35'
       stayMinutes: 45
     purpose:
-      - "Homemade Lunch"
-      - "Family Break"
-      - "Photography"
+      - 'Homemade Lunch'
+      - 'Family Break'
+      - 'Photography'
     navigation:
       destination:
-        name: "Ustaoset Station"
+        name: 'Ustaoset Station'
       parking:
-        name: "Ustaoset Station / Joker Ustaoset"
+        name: 'Ustaoset Station / Joker Ustaoset'
         confidence: RECOMMENDED
         gps:
           latitude:
           longitude:
-        notes: "Use Joker Ustaoset day parking if available. Otherwise park at Ustaoset Station."
+        notes: 'Use Joker Ustaoset day parking if available. Otherwise park at Ustaoset Station.'
     food:
-      recommendation: "Enjoy homemade lunch."
-      restaurant: "Skip"
+      recommendation: 'Enjoy homemade lunch.'
+      restaurant: 'Skip'
     weather:
-      good: "Lakeside picnic"
-      rain: "Continue to Cafe Presttun Ustaoset"
+      good: 'Lakeside picnic'
+      rain: 'Continue to Cafe Presttun Ustaoset'
     photography:
-      recommendation: "First family mountain photo."
-    story: "The first relaxed mountain meal of the holiday."
+      recommendation: 'First family mountain photo.'
+    story: 'The first relaxed mountain meal of the holiday.'
 
-###############################################################
+  ###############################################################
 
   - id: hardangervidda
     sequence: 4
     type: viewpoint
     fixed: false
     optional: true
-    title: "Hardangervidda Scenic Stop"
+    title: 'Hardangervidda Scenic Stop'
     schedule:
-      arrival: "12:55"
-      departure: "13:15"
+      arrival: '12:55'
+      departure: '13:15'
       stayMinutes: 20
     visitOnlyIf:
-      - "Good weather"
-      - "Ahead of schedule"
-      - "Everyone wants to stop"
+      - 'Good weather'
+      - 'Ahead of schedule'
+      - 'Everyone wants to stop'
     navigation:
       destination:
-        name: "Official Scenic Route Viewpoint"
+        name: 'Official Scenic Route Viewpoint'
       parking:
-        name: "Official tourist parking"
+        name: 'Official tourist parking'
         confidence: RECOMMENDED
         gps:
           latitude:
           longitude:
-        notes: "Use nearest official tourist parking."
+        notes: 'Use nearest official tourist parking.'
     weather:
-      good: "Enjoy viewpoint"
-      rain: "Skip stop"
-    roadbookRecommendation: "Optional"
+      good: 'Enjoy viewpoint'
+      rain: 'Skip stop'
+    roadbookRecommendation: 'Optional'
 
-###############################################################
+  ###############################################################
 
   - id: geilo
     sequence: 5
     type: accommodation
     fixed: true
-    title: "Havsdalsgrenda Geilo Apartments"
+    title: 'Havsdalsgrenda Geilo Apartments'
     schedule:
-      arrival: "16:50"
+      arrival: '16:50'
       departure: null
       stayMinutes: null
     purpose:
-      - "Check-in"
-      - "Relax"
-      - "Dinner"
-      - "Overnight charging"
+      - 'Check-in'
+      - 'Relax'
+      - 'Dinner'
+      - 'Overnight charging'
     navigation:
       destination:
-        name: "Havsdalsgrenda"
+        name: 'Havsdalsgrenda'
       parking:
-        name: "Havsdalsgrenda Apartments"
+        name: 'Havsdalsgrenda Apartments'
         confidence: VERIFIED
         gps:
           latitude:
           longitude:
-        notes: ""
+        notes: ''
     evening:
-      - "Check in"
-      - "Plug in EV"
-      - "Dinner"
-      - "Short walk"
-      - "Prepare for Day 2"
+      - 'Check in'
+      - 'Plug in EV'
+      - 'Dinner'
+      - 'Short walk'
+      - 'Prepare for Day 2'
 
 ###############################################################
 
 arrival:
-  accommodation: "Havsdalsgrenda Geilo Apartments"
-  parking: "At accommodation"
+  accommodation: 'Havsdalsgrenda Geilo Apartments'
+  parking: 'At accommodation'
   eveningPlan:
-    - "Check in"
-    - "Plug in EV"
-    - "Dinner"
-    - "Short walk"
-    - "Prepare for Day 2"
-  tomorrowPreparation: "Breakfast before 08:00 departure"
+    - 'Check in'
+    - 'Plug in EV'
+    - 'Dinner'
+    - 'Short walk'
+    - 'Prepare for Day 2'
+  tomorrowPreparation: 'Breakfast before 08:00 departure'
 
 ###############################################################
 
 passingHighlights:
-  - "Crossing into Norway"
-  - "Hallingdal Valley"
-  - "Hardangervidda Plateau"
-  - "Ustevatnet"
+  - 'Crossing into Norway'
+  - 'Hallingdal Valley'
+  - 'Hardangervidda Plateau'
+  - 'Ustevatnet'
 
 decisionPoints:
   - id: lunchDecision
-    trigger: "Weather around 10:45"
-    ifGood: "Proceed to Ustaoset lakeside picnic."
-    ifRain: "Continue to Cafe Presttun Ustaoset."
+    trigger: 'Weather around 10:45'
+    ifGood: 'Proceed to Ustaoset lakeside picnic.'
+    ifRain: 'Continue to Cafe Presttun Ustaoset.'
 
 roadbookRules:
-  targetArrival: "16:45-17:00"
+  targetArrival: '16:45-17:00'
   maximumRecommendedDetourMinutes: 5
   homemadeFoodPriority: true
   avoidBacktracking: true
@@ -275,17 +274,17 @@ roadbookRules:
 ###############################################################
 
 editorialNotes:
-  pageMood: "Anticipation"
-  heroImage: "Mountain road approaching Geilo"
+  pageMood: 'Anticipation'
+  heroImage: 'Mountain road approaching Geilo'
   designGuidance:
-    - "Clean, simple layout for a long driving day."
-    - "Emphasize the departure energy."
-    - "Highlight Vestby as the single main stop."
-    - "Keep afternoon section minimal — driving focus."
+    - 'Clean, simple layout for a long driving day.'
+    - 'Emphasize the departure energy.'
+    - 'Highlight Vestby as the single main stop.'
+    - 'Keep afternoon section minimal — driving focus.'
 
 ###############################################################
 
 todos:
-  - "Field verify exact preferred parking location at Ustaoset."
-  - "Confirm Cafe Presttun seasonal opening hours."
-  - "Replace recommended parking with field-verified GPS after the trip."
+  - 'Field verify exact preferred parking location at Ustaoset.'
+  - 'Confirm Cafe Presttun seasonal opening hours.'
+  - 'Replace recommended parking with field-verified GPS after the trip.'

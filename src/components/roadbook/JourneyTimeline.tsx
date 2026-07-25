@@ -23,9 +23,7 @@ export function JourneyTimeline({ journey }: JourneyTimelineProps) {
       <div className="journey-timeline__track">
         {journey.map((item, index) => (
           <div className="journey-timeline__item" key={item.stopId}>
-            <span className="journey-timeline__icon">
-              {iconMap[item.icon] || '📍'}
-            </span>
+            <span className="journey-timeline__icon">{iconMap[item.icon] || '📍'}</span>
             <div className="journey-timeline__details">
               <span className="journey-timeline__time">{item.time}</span>
               <span className="journey-timeline__label">{item.title}</span>
