@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { generateTimelineEvents } from '../components/roadbook/Timeline'
+import { generateTimelineEvents } from '../components/roadbook/timeline-utils'
 import type { RoadbookDayData } from '../types/roadbook-day'
 
 const mockDay: RoadbookDayData = {
