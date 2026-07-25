@@ -1,30 +1,60 @@
-name: Quality and deploy
+name: Build and Deploy
+
 on:
-  push: { branches: [main] }
+  push:
+    branches: [develop]
   pull_request:
-permissions: { contents: read, pages: write, id-token: write }
-concurrency: { group: pages, cancel-in-progress: true }
+    branches: [develop]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  verify:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
-      - run: npm install
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
       - run: npm run lint
+
       - run: npm run format
+
       - run: npm run validate:data
+
       - run: npm test
+
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/main'
-        with: { path: dist }
+
+      - name: Copy 404.html for SPA routing
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
   deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: verify
-    environment: { name: github-pages, url: ${{ steps.deployment.outputs.page_url }} }
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
