@@ -10,11 +10,11 @@ interface RouteDecisionCardProps {
  * Default: Option A selected. User can toggle to Option B (UI only, no YAML modification).
  */
 export function RouteDecisionCard({ routeDecision }: RouteDecisionCardProps) {
-  if (!routeDecision.enabled) return null
-
   const [selectedId, setSelectedId] = useState<string>(
     routeDecision.options.find((o) => o.selected)?.id || routeDecision.options[0]?.id || ''
   )
+
+  if (!routeDecision.enabled) return null
 
   const selectedOption = routeDecision.options.find((o) => o.id === selectedId)
 
