@@ -1,0 +1,213 @@
+version: "1.0"
+status: LOCKED
+dayId: day-7
+
+metadata:
+  title: "Day 7"
+  subtitle: "Homeward Bound"
+  theme: "Comfortable Drive Home"
+  date: "2026-08-01"
+
+route:
+  start:
+    name: "Borkevegen 55"
+    address: "Borkevegen 55, Ringsaker, Norway"
+  destination:
+    name: "Home"
+    city: "Gothenburg"
+
+summary:
+  departureTime: "08:30"
+  targetArrival: "16:00"
+  estimatedDrivingTime: "5h 00m"
+  plannedStopTime: "1h 30m"
+  totalTravelTime: "6h 30m"
+
+driver:
+  dayType: "Return Journey"
+  chargingStrategy:
+    philosophy: "Charge only if required."
+    preferredLocation: "Karlstad"
+    backupLocations:
+      - "Grums"
+      - "Trollhättan"
+    decisionRule: "If battery >50% at Karlstad, continue to Gothenburg. Otherwise charge while eating lunch."
+  notes:
+    - "Relaxed driving day."
+    - "No sightseeing planned."
+    - "Monitor traffic approaching Gothenburg."
+
+navigator:
+  regroupPoint: "Karlstad"
+  weatherReminder: "No weather-dependent activities today."
+  chargingReminder: "Charge at Karlstad only if battery requires it."
+  notes:
+    - "Karlstad is the single planned stop — keep it simple."
+    - "Monitor traffic approaching Gothenburg in the afternoon."
+
+###############################################################
+
+stops:
+
+###############################################################
+
+  - id: departure
+    sequence: 1
+    type: departure
+    fixed: true
+    title: "Borkevegen 55"
+    schedule:
+      arrival: "08:30"
+      departure: "08:30"
+      stayMinutes: 0
+    beforeLeaving:
+      - "Breakfast completed"
+      - "Luggage loaded"
+      - "Battery level checked"
+      - "Navigation started"
+
+###############################################################
+
+  - id: coffee
+    sequence: 2
+    type: optional
+    fixed: false
+    optional: true
+    title: "Coffee & Stretch"
+    schedule:
+      arrival: "10:15"
+      departure: "10:35"
+      stayMinutes: 20
+    recommendation: "Skip if everyone feels comfortable."
+
+###############################################################
+
+  - id: regroup
+    sequence: 3
+    type: regroup
+    fixed: true
+    title: "Regroup Point — Karlstad"
+    schedule:
+      arrival: "12:00"
+      departure: "13:00"
+      stayMinutes: 60
+    purpose:
+      - "Lunch"
+      - "Regroup both vehicles"
+      - "Stretch"
+      - "Restrooms"
+      - "Battery check"
+    preferred:
+      type: "Homemade Lunch"
+      recommendation:
+        - "Picnic area in Karlstad"
+    alternative:
+      type: "Restaurant"
+      recommendation:
+        name: "Restaurant of choice near charging location"
+        reason:
+          - "Indoor seating"
+          - "Vegetarian options"
+          - "Rain alternative"
+    charging:
+      philosophy: "Charge only if battery level requires it."
+
+###############################################################
+
+  - id: continue
+    sequence: 4
+    type: drive
+    fixed: true
+    title: "Final Drive"
+    schedule:
+      arrival: "16:00"
+      departure: "13:00"
+      stayMinutes: null
+    purpose:
+      - "Comfortable drive home"
+
+###############################################################
+
+  - id: arrival
+    sequence: 5
+    type: destination
+    fixed: true
+    title: "Home"
+    schedule:
+      arrival: "16:00"
+      departure: null
+      stayMinutes: null
+    purpose:
+      - "Unload luggage"
+      - "Plug in EVs"
+      - "Trip complete"
+
+###############################################################
+
+arrival:
+  accommodation: "Home"
+  parking: "Home"
+  eveningPlan:
+    - "Unload luggage"
+    - "Plug in EVs"
+    - "Trip complete"
+  tomorrowPreparation: null
+
+###############################################################
+
+decisionPoints:
+  - id: charging
+    trigger: "Lunch"
+    ifBatteryAbove50: "Continue to Gothenburg."
+    otherwise: "Charge while eating lunch."
+  - id: coffee
+    trigger: "Driver fatigue"
+    ifNeeded: "Take optional coffee break."
+    otherwise: "Continue to Karlstad."
+
+###############################################################
+
+roadbookRules:
+  weatherAdaptive: true
+  regroupAtKarlstad: true
+  homemadeFoodPriority: true
+  avoidUnnecessaryStops: true
+
+###############################################################
+
+routeAudit:
+  unnecessaryDetours: false
+  chargingIntegrated: true
+  weatherBackup: true
+  stressLevel: "Very Low"
+
+###############################################################
+
+editorialNotes:
+  pageMood: "Relaxed"
+  heroImage: "Scenic road towards Sweden"
+  designGuidance:
+    - "Minimal design."
+    - "No attraction cards."
+    - "Highlight Karlstad regroup point."
+    - "Focus on driving information."
+    - "Large arrival card."
+
+###############################################################
+
+tripSummary:
+  completed:
+    - "Day 1"
+    - "Day 2"
+    - "Day 3"
+    - "Day 4"
+    - "Day 5"
+    - "Day 6"
+    - "Day 7"
+  message: "Trip Complete. Welcome Home."
+
+###############################################################
+
+todos:
+  - "Verify preferred lunch and charging location in Karlstad."
+  - "Add GPS coordinates for the official regroup point."
